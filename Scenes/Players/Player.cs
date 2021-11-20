@@ -41,6 +41,10 @@ public abstract class Player : KinematicBody2D
         if (collision != null)
         {
             this.velocity = this.velocity.Bounce(collision.Normal);
+
+            float rotation = this.velocity.Angle();
+            Vector2 directionVector = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
+            this.velocity = (this.velocity.Length() / 4.0f) * directionVector;
             if (this.lastCollision != collision.Collider)
             {
                 if (collision.Collider.GetType().IsSubclassOf(typeof(Player)))
