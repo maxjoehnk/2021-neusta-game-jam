@@ -17,7 +17,7 @@ public class Game : Node
     private CanvasModulate CanvasTint => GetNode<CanvasModulate>("CanvasModulate");
     private TextureRect Clock => GetNode<TextureRect>("MainOverlay/Clock");
     
-    private float ClockRotation = 180;
+    private float clockRotation = 180;
     
     public override void _Ready()
     {
@@ -39,17 +39,17 @@ public class Game : Node
 
     private bool UpdateClock(float delta)
     {
-        this.ClockRotation += delta * 10;
-        if (this.ClockRotation > 360)
+        this.clockRotation += delta * 5;
+        if (this.clockRotation > 360)
         {
-            this.ClockRotation -= 360;
+            this.clockRotation -= 360;
         }
 
-        bool isNight = this.ClockRotation > 180;
+        bool isNight = this.clockRotation > 180;
 
         CanvasTint.Color = isNight ? Colors.MidnightBlue : Colors.Orange;
         CanvasTint.Color = CanvasTint.Color.Lightened(0.7f);
-        Clock.RectRotation = this.ClockRotation;
+        Clock.RectRotation = this.clockRotation;
 
         return isNight;
     }

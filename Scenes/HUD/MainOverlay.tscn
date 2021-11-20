@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/Clock.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Clock.cs" type="Script" id=2]
-[ext_resource path="res://Assets/ClockMask.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/Clock.png" type="Texture" id=1]
+[ext_resource path="res://Assets/HUD/ClockMask.png" type="Texture" id=3]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -25,7 +24,6 @@ rect_pivot_offset = Vector2( 512, 512 )
 rect_clip_content = true
 texture = ExtResource( 1 )
 stretch_mode = 1
-script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

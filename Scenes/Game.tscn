@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Scenes/Game.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/MainOverlay.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Cat.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/PlayerCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/HUD/MainOverlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Players/Cat.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Players/Mouse.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Players/PlayerCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://world_2d.tres" type="World" id=7]
-[ext_resource path="res://Scenes/PlayerOverlay.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/HUD/PlayerOverlay.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node"]
 script = ExtResource( 1 )
