@@ -51,6 +51,11 @@ public abstract class Player : KinematicBody2D
             this.lastCollision = null;
         }
         // this.velocity = MoveAndSlide(this.velocity);
+        this._PostPhysics();
+    }
+
+    protected virtual void _PostPhysics()
+    {
     }
 
     private Vector2 GetDirection()
