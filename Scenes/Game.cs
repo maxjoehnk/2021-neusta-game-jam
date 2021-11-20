@@ -39,7 +39,8 @@ public class Game : Node
 
     private bool UpdateClock(float delta)
     {
-        this.clockRotation += delta * 5;
+        const int ClockRotationSpeed = 5;
+        this.clockRotation += delta * ClockRotationSpeed;
         if (this.clockRotation > 360)
         {
             this.clockRotation -= 360;

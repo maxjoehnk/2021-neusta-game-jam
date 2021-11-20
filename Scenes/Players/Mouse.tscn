@@ -5,10 +5,6 @@
 [ext_resource path="res://Assets/Mouse/Mouse-3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Mouse/Mouse-1.png" type="Texture" id=4]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 32.0
-height = 60.0
-
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 1 ), ExtResource( 3 ) ],
@@ -17,17 +13,21 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 48.0
+height = 60.0
+
 [node name="Mouse" type="KinematicBody2D"]
 collision_mask = 3
 script = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 8 )
-shape = SubResource( 1 )
-
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 1.90735e-06 )
-scale = Vector2( 0.167969, 0.167969 )
+position = Vector2( -0.111206, -4.37271 )
+rotation = -0.222316
+scale = Vector2( 0.231937, 0.231937 )
 frames = SubResource( 2 )
 playing = true
-offset = Vector2( -190.512, -142.884 )
+offset = Vector2( -168.823, -158.435 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )

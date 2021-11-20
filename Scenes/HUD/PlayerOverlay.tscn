@@ -17,33 +17,50 @@ animations = [ {
 [node name="Control" type="CanvasLayer"]
 script = ExtResource( 5 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 192.0
+margin_bottom = 72.0
+color = Color( 0, 0, 0, 0.207843 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Heart1" type="AnimatedSprite" parent="."]
-position = Vector2( 32, 40 )
+position = Vector2( 32, 49 )
 scale = Vector2( 0.0779725, 0.0779725 )
 frames = ExtResource( 2 )
 animation = "alive"
-frame = 2
 playing = true
 
 [node name="Heart2" type="AnimatedSprite" parent="."]
-position = Vector2( 96, 40 )
+position = Vector2( 96, 49 )
 scale = Vector2( 0.0779725, 0.0779725 )
 frames = ExtResource( 2 )
 animation = "alive"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Heart3" type="AnimatedSprite" parent="."]
-position = Vector2( 160, 40 )
+position = Vector2( 160, 49 )
 scale = Vector2( 0.0779725, 0.0779725 )
 frames = ExtResource( 2 )
 animation = "alive"
-frame = 3
+frame = 1
 playing = true
 
 [node name="AngryFace" type="AnimatedSprite" parent="."]
 position = Vector2( 291, 37 )
 scale = Vector2( 0.12249, 0.12249 )
 frames = SubResource( 2 )
-frame = 1
+frame = 2
 playing = true
+
+[node name="ColorRect2" type="ColorRect" parent="AngryFace"]
+margin_left = -808.0
+margin_top = -302.0
+margin_right = 302.0
+margin_bottom = 286.0
+color = Color( 0, 0, 0, 0.207843 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

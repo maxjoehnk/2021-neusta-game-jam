@@ -1,4 +1,8 @@
+using System;
+
 using Godot;
+
+using Object = Godot.Object;
 
 public abstract class Player : KinematicBody2D
 {
@@ -20,7 +24,9 @@ public abstract class Player : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
-        this.velocity = GetDirection() * this.speed;
+        Vector2 direction = GetDirection();
+        this.Rotation = direction.Angle() - (float)(Math.PI / 2);
+        this.velocity = direction * this.speed;
         // this.velocity = CalculateMoveVelocity(direction, this.speed);
 
         KinematicCollision2D collision = MoveAndCollide(this.velocity * delta);
