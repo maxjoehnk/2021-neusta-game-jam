@@ -1,5 +1,6 @@
-using Godot;
 using System;
+
+using Godot;
 
 using JetBrains.Annotations;
 
@@ -72,8 +73,8 @@ public class Game : Node
         Cat.IsHunting = IsNight;
         Mouse.IsHunting = !IsNight;
         
-        UpdatePlayerHUD(Cat, CatOverlay);
-        UpdatePlayerHUD(Mouse, MouseOverlay);
+        UpdatePlayerHUD(CatOverlay, Cat);
+        UpdatePlayerHUD(MouseOverlay, Mouse);
     }
 
     private void UpdateGameState()
@@ -143,10 +144,12 @@ public class Game : Node
         Clock.RotationDegrees = this.clockRotation;
     }
 
-    private void UpdatePlayerHUD(Player player, PlayerOverlay hud)
+    private void UpdatePlayerHUD(PlayerOverlay hud, Player player)
     {
         hud.SetHunting(player.IsHunting);
         hud.SetLives(player.Lives);
+        hud.SetSpecialCooldown(player.SpecialCooldown);
+        hud.SetAttackCooldown(player.AttackCooldown);
     } 
 
     private void SetupCameraLimits()

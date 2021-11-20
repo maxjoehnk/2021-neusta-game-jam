@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class PlayerOverlay : Node2D
 {
@@ -9,6 +8,9 @@ public class PlayerOverlay : Node2D
 
     private AnimatedSprite[] Hearts => new[] { Heart1, Heart2, Heart3 };
     private AnimatedSprite AngryFace => GetNode<AnimatedSprite>("AngryFace");
+
+    private TextureProgress AttackCooldown => GetNode<TextureProgress>("AttackCooldown");
+    private TextureProgress SpecialCooldown => GetNode<TextureProgress>("SpecialCooldown");
     
     public void SetHunting(bool hunting)
     {
@@ -28,5 +30,15 @@ public class PlayerOverlay : Node2D
         {
             this.Hearts[i].Animation = lives > i ? "alive" : "dead";
         }
+    }
+
+    public void SetSpecialCooldown(float cooldown)
+    {
+        SpecialCooldown.Value = cooldown;
+    }
+
+    public void SetAttackCooldown(float cooldown)
+    {
+        AttackCooldown.Value = cooldown;
     }
 }

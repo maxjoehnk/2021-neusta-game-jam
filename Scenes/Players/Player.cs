@@ -15,6 +15,12 @@ public abstract class Player : KinematicBody2D
     public bool IsHunting { get; set; }
     public int Lives { get; set; }
 
+    public float SpecialCooldown => SpecialTimer?.TimeLeft / SpecialTimer?.WaitTime ?? 0;
+    public float AttackCooldown => AttackTimer?.TimeLeft / AttackTimer?.WaitTime ?? 0;
+
+    protected abstract Timer SpecialTimer { get; }
+    protected abstract Timer AttackTimer { get; }
+    
     protected float lowpassVel;
     protected float lowpassRot;
 

@@ -1,5 +1,6 @@
-using Godot;
 using System;
+
+using Godot;
 
 public class Cat : Player
 {
@@ -13,6 +14,9 @@ public class Cat : Player
         this.speed = new Vector2(2048, 2048);
         this.IsHunting = true;
     }
+
+    protected override Timer SpecialTimer => JumpCoolDown;
+    protected override Timer AttackTimer => Spitter.Cooldown;
 
     protected override void Attack()
     {

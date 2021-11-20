@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class CheeseThrower : Position2D
 {
@@ -7,7 +6,7 @@ public class CheeseThrower : Position2D
     
     private PackedScene Cheese;
     
-    private Timer Cooldown => GetNode<Timer>("Cooldown");
+    public Timer Cooldown => GetNode<Timer>("Cooldown");
 
     public override void _Ready()
     {

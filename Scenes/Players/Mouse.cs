@@ -6,6 +6,9 @@ public class Mouse : Player
 {
     private CheeseThrower Thrower => GetNode<CheeseThrower>("AnimatedSprite/CheeseThrower");
     private Sprite AngryEyes => GetNode<Sprite>("AngryEyes");
+
+    protected override Timer SpecialTimer { get; }
+    protected override Timer AttackTimer => Thrower.Cooldown;
     
     public Mouse() : base(2, 0.0f, 0.0f)
     {

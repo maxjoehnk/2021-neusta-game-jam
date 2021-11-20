@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public class CatSpitter : Position2D
 {
@@ -7,7 +6,7 @@ public class CatSpitter : Position2D
     
     private PackedScene Spit;
     
-    private Timer Cooldown => GetNode<Timer>("Cooldown");
+    public Timer Cooldown => GetNode<Timer>("Cooldown");
     private AudioStreamPlayer Sound => GetNode<AudioStreamPlayer>("SpitSound");
 
     public override void _Ready()
