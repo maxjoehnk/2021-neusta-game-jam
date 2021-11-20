@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+using JetBrains.Annotations;
+
 public class Game : Node
 {
     private const float InitialClockRotation = 180;
@@ -14,7 +16,7 @@ public class Game : Node
     private Mouse Mouse => GetNode<Mouse>("Viewports/CatView/Viewport/Mouse");
     private PlayerOverlay MouseOverlay => GetNode<PlayerOverlay>("Overlays/MouseOverlay");
 
-    private TileMap Map => GetNode<TileMap>("Viewports/CatView/Viewport/Map");
+    private Map Map => GetNode<Map>("Viewports/CatView/Viewport/Map");
 
     private CanvasModulate CanvasTint => GetNode<CanvasModulate>("CanvasModulate");
     private Sprite Clock => GetNode<Sprite>("ClockOverlay/Clock");
@@ -33,6 +35,8 @@ public class Game : Node
         CatCamera.Target = Cat;
         MouseCamera.Target = Mouse;
         SetupCameraLimits();
+        // HACK[max]: we run into hit detection once at the start of the game. This should be replaced by PlacePlayers
+        RestartGame();
     }
 
     public override void _Process(float delta)
@@ -44,15 +48,7 @@ public class Game : Node
         ApplyGameState();
     }
 
-    private void UpdatePlayers()
-    {
-        Cat.IsHunting = IsNight;
-        Mouse.IsHunting = !IsNight;
-        
-        UpdatePlayerHUD(Cat, CatOverlay);
-        UpdatePlayerHUD(Mouse, MouseOverlay);
-    }
-
+    [UsedImplicitly]
     public void RestartGame()
     {
         this.Cat.Reset();
@@ -60,8 +56,24 @@ public class Game : Node
         this.clockRotation = InitialClockRotation;
         this.state = GameState.Playing;
         this.winner = null;
+        this.PlacePlayers();
         this.UpdatePlayers();
         this.ApplyGameState();
+    }
+
+    private void PlacePlayers()
+    {
+        Cat.Position = Map.CatSpawn;
+        Mouse.Position = Map.MouseSpawn;
+    }
+
+    private void UpdatePlayers()
+    {
+        Cat.IsHunting = IsNight;
+        Mouse.IsHunting = !IsNight;
+        
+        UpdatePlayerHUD(Cat, CatOverlay);
+        UpdatePlayerHUD(Mouse, MouseOverlay);
     }
 
     private void UpdateGameState()

@@ -4,4 +4,7 @@
     <RootNamespace>NeustaGamejam</RootNamespace>
     <LangVersion>8</LangVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+  </ItemGroup>
 </Project>
