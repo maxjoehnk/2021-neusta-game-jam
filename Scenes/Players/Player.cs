@@ -63,6 +63,7 @@ public abstract class Player : KinematicBody2D
         {
             this.Attack();
         }
+        _Pre_Physic();
     }
 
     public void Reset()
@@ -89,6 +90,7 @@ public abstract class Player : KinematicBody2D
     protected abstract void Attack();
 
     protected abstract void useSpecialMove();
+    protected abstract void _Pre_Physic();
 
     private Vector2 GetDirection()
     {
