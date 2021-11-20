@@ -54,7 +54,11 @@ public abstract class Player : KinematicBody2D
         {
             this.lastCollision = null;
         }
-        this._PostPhysics();
+
+        if (Input.IsActionJustPressed($"p{this.PlayerNumber}_attack"))
+        {
+            this.Attack();
+        }
     }
 
     public void Reset()
@@ -63,9 +67,6 @@ public abstract class Player : KinematicBody2D
         this.IsHunting = false;
     }
 
-    protected virtual void _PostPhysics()
-    {
-    }
     private void setVelocityAndRotation(float delta, float currentRotation, Vector2 direction)
     {
         this.velocity = this.velocity * lowpassVel + (1.0f - lowpassVel) * direction * this.speed * delta;
@@ -80,6 +81,9 @@ public abstract class Player : KinematicBody2D
             this.Rotation = this.Rotation * lowpassRot + currentRotation * (1.0f - lowpassRot);
         }
     }
+
+    protected abstract void Attack();
+    
     private Vector2 GetDirection()
     {
         float x = Input.GetActionStrength($"p{this.PlayerNumber}_right") -
@@ -89,6 +93,4 @@ public abstract class Player : KinematicBody2D
 
         return new Vector2(x, y);
     }
-
-
 }

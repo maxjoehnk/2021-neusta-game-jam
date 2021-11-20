@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Mouse/Mouse-2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Mouse.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Mouse/Mouse-3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Mouse/Mouse-1.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Players/CheeseThrower.cs" type="Script" id=5]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -15,7 +16,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 48.0
-height = 60.0
+height = 68.0
 
 [node name="Mouse" type="KinematicBody2D"]
 collision_mask = 3
@@ -26,9 +27,17 @@ position = Vector2( -0.111206, -4.37271 )
 rotation = -0.222316
 scale = Vector2( 0.231937, 0.231937 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 offset = Vector2( -168.823, -158.435 )
 
+[node name="CheeseThrower" type="Position2D" parent="AnimatedSprite"]
+position = Vector2( -78.5, 271.222 )
+script = ExtResource( 5 )
+
+[node name="Cooldown" type="Timer" parent="AnimatedSprite/CheeseThrower"]
+process_mode = 0
+one_shot = true
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2( 1, 1.03084 )
 shape = SubResource( 1 )
