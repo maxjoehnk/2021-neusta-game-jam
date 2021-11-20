@@ -7,7 +7,7 @@ public class Cat : Player
     
     public Cat() : base(1, 0.9f, 0.95f)
     {
-        this.speed = new Vector2(756, 756);
+        this.speed = new Vector2(1024, 1024);
         this.IsHunting = true;
     }
 

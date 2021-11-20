@@ -25,11 +25,11 @@ collision_mask = 3
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( -15.0282, 17.4236 )
+position = Vector2( 3.27971, -19.129 )
 rotation = 1.5763
 scale = Vector2( 0.250094, 0.250094 )
 frames = SubResource( 2 )
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( -228.701, -58.4757 )
 
@@ -45,5 +45,5 @@ process_mode = 0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -16, 40 )
+position = Vector2( 2.30791, 3.44745 )
 shape = SubResource( 3 )
