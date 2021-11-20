@@ -31,10 +31,10 @@ public abstract class Player : KinematicBody2D
     {
         Vector2 direction = GetDirection();
 
-        setVelocityAndRotation(delta, direction.Angle() - (float)(Math.PI / 2), direction);
+        SetVelocityAndRotation(delta, direction.Angle() - (float)(Math.PI / 2), direction);
         if (Input.IsActionJustPressed($"p{this.PlayerNumber}_special"))
         {
-            useSpecialMove();
+            SpecialMove();
         }
 
         KinematicCollision2D collision = MoveAndCollide(this.velocity);
@@ -63,7 +63,7 @@ public abstract class Player : KinematicBody2D
         {
             this.Attack();
         }
-        _Pre_Physic();
+        PrePhysic();
     }
 
     public void Reset()
@@ -72,7 +72,7 @@ public abstract class Player : KinematicBody2D
         this.IsHunting = false;
     }
 
-    private void setVelocityAndRotation(float delta, float currentRotation, Vector2 direction)
+    private void SetVelocityAndRotation(float delta, float currentRotation, Vector2 direction)
     {
         this.velocity = this.velocity * lowpassVel + (1.0f - lowpassVel) * direction * this.speed * delta;
 
@@ -89,8 +89,8 @@ public abstract class Player : KinematicBody2D
 
     protected abstract void Attack();
 
-    protected abstract void useSpecialMove();
-    protected abstract void _Pre_Physic();
+    protected abstract void SpecialMove();
+    protected abstract void PrePhysic();
 
     private Vector2 GetDirection()
     {

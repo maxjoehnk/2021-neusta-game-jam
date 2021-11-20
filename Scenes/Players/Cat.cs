@@ -22,7 +22,7 @@ public class Cat : Player
         Spitter.Shoot(direction);
     }
 
-    protected override void useSpecialMove()
+    protected override void SpecialMove()
     {
         if (!JumpCoolDown.IsStopped())
         {
@@ -37,7 +37,7 @@ public class Cat : Player
         usedJump = true;
     }
 
-    protected override void _Pre_Physic()
+    protected override void PrePhysic()
     {
         if (usedJump)
         {

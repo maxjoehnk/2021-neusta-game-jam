@@ -20,10 +20,10 @@ public class Mouse : Player
         Thrower.Throw(direction);
     }
 
-    protected override void useSpecialMove()
+    protected override void SpecialMove()
     {
     }
-    protected override void _Pre_Physic()
+    protected override void PrePhysic()
     {
 
     }
