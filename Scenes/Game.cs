@@ -15,7 +15,7 @@ public class Game : Node
     private TileMap Map => GetNode<TileMap>("Viewports/CatView/Viewport/Map");
 
     private CanvasModulate CanvasTint => GetNode<CanvasModulate>("CanvasModulate");
-    private TextureRect Clock => GetNode<TextureRect>("MainOverlay/Clock");
+    private TextureRect Clock => GetNode<TextureRect>("ClockOverlay/Clock");
     
     private float clockRotation = 180;
     

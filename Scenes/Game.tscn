@@ -12,8 +12,6 @@
 [node name="Node2D" type="Node"]
 script = ExtResource( 1 )
 
-[node name="MainOverlay" parent="." instance=ExtResource( 3 )]
-
 [node name="CatOverlay" parent="." instance=ExtResource( 13 )]
 
 [node name="MouseOverlay" parent="." instance=ExtResource( 13 )]
@@ -74,3 +72,6 @@ render_target_update_mode = 3
 [node name="Camera" parent="Viewports/MouseView/Viewport" instance=ExtResource( 6 )]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="ClockOverlay" parent="." instance=ExtResource( 3 )]
+position = Vector2( 960, 136 )
