@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=31 format=2]
+[gd_resource type="TileSet" load_steps=59 format=2]
 
 [ext_resource path="res://Assets/Map/CobblestoneWall_MiddleV_Tile_Small.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Planks_Tile_Small.png" type="Texture" id=2]
@@ -15,6 +15,20 @@
 [ext_resource path="res://Assets/Map/CobblestoneWall_Corner_UR_Tile_Small.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Map/CobblestoneWall_Corner_UL_Tile_Small.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Map/CobblestoneWall_Corner_OR_Tile_Small.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_Corner_UR_Tile_Small.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_U_Tile_Small.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_L_Tile_Small.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_Corner_UL_Tile_Small.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_Corner_OL_Tile_Small.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_Corner_OR_Tile_Small.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_O_Tile_Small.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_R_Tile_Small.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Map/CobblestoneWall_TPiece_O_Tile_Small.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Map/CobblestoneWall_TPiece_U_Tile_Small.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_U_Tile_Small.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_O_Tile_Small.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_L_Tile_Small.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_R_Tile_Small.png" type="Texture" id=29]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0.416656, 60.5833, 8.05557, 59.1944, 28.1945, 83.5, 73.3333, 57.8056, 75.4167, 48.0833, 78.1945, 44.6111, 78.8889, 10.1389, 57.3611, 0, 177.5, 0.416656, 172.639, 19.8611, 178.889, 38.6111, 174.722, 60.8333, 169.167, 72.6389, 178.194, 99.7222, 176.806, 107.361, 170.556, 115.694, 174.722, 123.333, 155.972, 167.083, 160.139, 184.444, 154.583, 191.139, 160.833, 223.083, 174.028, 232.806, 178.481, 256, 58.3192, 256, 51.1111, 251.556, 50.4167, 236.972, 68.4722, 219.611, 67.0833, 176.556, 25.4167, 201.556, 7.36111, 199.472, 0, 191.833 )
@@ -45,6 +59,48 @@ points = PoolVector2Array( 57.7083, 255.838, 49.6065, 251.208, 49.6065, 235.583,
 
 [sub_resource type="ConvexPolygonShape2D" id=18]
 points = PoolVector2Array( 0, 62.5278, 8.05554, 59.75, 28.1945, 84.75, 73.3333, 58.3611, 74.0278, 49.3333, 78.8889, 45.1667, 79.5833, 11.8333, 57.3611, 0.722229, 178.194, 0, 174.028, 20.1667, 179.583, 38.2222, 176.111, 54.8889, 170.556, 70.1667, 193.472, 68.7778, 204.583, 72.9445, 232.361, 58.3611, 256, 59.75, 256, 195.167, 215, 204.889, 179.583, 198.639, 178.194, 190.306, 162.222, 186.139, 158.056, 191, 160.833, 206.278, 160.833, 225.028, 171.944, 229.889, 178.194, 256, 58.0555, 256, 47.6389, 250.028, 49.7222, 238.917, 67.7778, 221.556, 69.1667, 180.583, 44.1667, 187.528, 27.5, 202.806, 8.75, 202.111, 0, 194.472 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 0, 254.583, 0, 0, 256, 0, 256, 194.167, 213.611, 203.889, 185.139, 197.639, 179.583, 193.472, 161.528, 183.75, 156.667, 192.083, 160.139, 196.25, 160.833, 224.722, 174.028, 233.75, 178.889, 255.972 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 0, 0, 256, 0, 256, 256, 58.75, 255.972, 49.7222, 249.028, 47.6389, 237.917, 67.7778, 219.861, 67.0833, 180.972, 29.5833, 199.722, 8.05554, 201.806, 1.11108, 195.556 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+points = PoolVector2Array( 0, 60.8333, 8.05554, 57.3611, 26.8055, 84.4445, 75.4167, 58.75, 74.0278, 49.0278, 79.5833, 44.8611, 79.5833, 9.44446, 55.9722, 0.416687, 256, 0, 256, 256, 0, 256 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+points = PoolVector2Array( 0, 0, 178.889, 0, 176.111, 21.9445, 178.889, 37.9167, 175.417, 53.8889, 171.944, 67.7778, 194.861, 68.4722, 202.5, 72.6389, 230.972, 55.9722, 256, 60.8333, 256, 256, 0, 256 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+points = PoolVector2Array( 0, 0, 176.111, 0, 174.028, 19.1667, 179.583, 40, 175.417, 51.1111, 176.806, 56.6667, 170.556, 71.9445, 182.361, 97.6389, 179.583, 109.444, 173.333, 118.472, 173.333, 131.667, 156.667, 169.167, 162.222, 182.361, 155.972, 192.778, 163.611, 210.833, 162.222, 227.5, 176.111, 235.833, 178.194, 256, 0, 256, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+points = PoolVector2Array( 0, 0, 256, 0, 256, 196.944, 210.139, 204.583, 179.583, 198.333, 179.583, 192.083, 139.306, 183.056, 137.917, 174.028, 130.278, 172.639, 124.722, 181.667, 113.611, 183.056, 80.9722, 178.194, 23.3333, 203.194, 0, 196.944, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+points = PoolVector2Array( 256, 0, 256, 256, 57.3611, 255.972, 58.0555, 234.444, 76.1111, 223.333, 76.8055, 208.75, 68.4722, 199.028, 68.4722, 181.667, 63.6111, 173.333, 69.1667, 151.806, 66.3889, 143.472, 70.5555, 124.028, 70.5555, 117.083, 83.0555, 108.75, 76.8055, 90, 82.3611, 79.5833, 72.6389, 59.4445, 71.9445, 48.3333, 78.1945, 46.9445, 78.1945, 11.5278, 58.0555, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=26]
+points = PoolVector2Array( 0, 62.2222, 8.05554, 59.4445, 27.5, 85.1389, 74.7222, 58.75, 91.3889, 80.2778, 126.111, 74.0278, 135.833, 79.5833, 158.75, 65.6945, 165.694, 71.9445, 192.778, 65.6945, 203.889, 71.25, 232.361, 56.6667, 256, 60.8333, 256, 256, 0, 256 )
+
+[sub_resource type="ConvexPolygonShape2D" id=27]
+points = PoolVector2Array( 0, 61.5278, 8.75, 56.6667, 28.1945, 83.75, 74.0278, 59.4445, 90.6945, 79.5833, 124.722, 76.1111, 137.222, 79.5833, 160.833, 65, 166.389, 71.9445, 194.861, 67.0833, 205.972, 74.0278, 233.75, 55.9722, 256, 62.2222, 256, 197.639, 216.389, 205.278, 179.583, 199.722, 177.5, 190, 158.056, 185.139, 159.444, 201.806, 162.222, 223.333, 174.722, 230.278, 180.972, 256, 58.0555, 256, 46.25, 250.417, 49.7222, 237.222, 69.1667, 223.333, 67.7778, 178.889, 42.0833, 189.306, 26.8055, 201.806, 5.27777, 200.417, 0, 191.389 )
+
+[sub_resource type="ConvexPolygonShape2D" id=28]
+points = PoolVector2Array( 0, 192.083, 0, 60.8333, 8.05554, 57.3611, 9.44446, 67.0833, 28.1945, 83.75, 40, 74.7222, 72.6389, 58.75, 71.9445, 46.9445, 79.5833, 42.0833, 77.5, 35.8333, 80.9722, 10.1389, 58.0555, 0, 179.583, 0, 176.111, 21.25, 178.194, 51.8056, 167.778, 69.8611, 191.389, 69.1667, 205.972, 69.8611, 230.278, 56.6667, 256, 59.4445, 255.972, 194.861, 216.389, 203.889, 202.5, 202.5, 189.306, 199.028, 178.194, 192.778, 147.639, 181.667, 136.528, 182.361, 137.222, 175.417, 139.306, 171.944, 128.889, 172.639, 124.028, 179.583, 113.611, 183.75, 79.5833, 176.111, 67.0833, 179.583, 30.9722, 198.333, 10.1389, 201.111, 0, 196.944 )
+
+[sub_resource type="ConvexPolygonShape2D" id=29]
+points = PoolVector2Array( 256, 255.972, 256, 0, 256, 256, 57.3611, 256, 49.0278, 249.722, 49.0278, 235.833, 65.6945, 221.25, 66.3889, 180.278, 28.1945, 198.333, 17.0833, 203.889, 0, 196.944, 0, 60.8333, 7.36108, 60.8333, 28.1945, 83.75, 40, 74.0278, 71.25, 60.1389, 72.6389, 47.6389, 77.5, 44.8611, 76.8055, 10.8333, 58.0555, 0, 256, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=30]
+points = PoolVector2Array( 0, 256, 0, 62.2222, 8.75, 60.8333, 26.1111, 82.3611, 74.0278, 60.1389, 74.0278, 47.6389, 79.5833, 44.1667, 78.8889, 10.8333, 55.9722, 0, 179.583, 0, 176.111, 21.9445, 177.5, 41.3889, 172.639, 68.4722, 194.167, 67.0833, 203.889, 72.6389, 231.667, 58.0556, 256, 60.1389, 256, 256 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 0, 0, 256, 0, 256, 194.861, 217.778, 201.806, 184.444, 198.333, 177.5, 190.694, 160.833, 185.139, 159.444, 189.306, 164.306, 209.444, 162.917, 222.639, 173.333, 233.056, 180.278, 256, 58.0555, 256, 50.4167, 251.806, 48.3333, 239.306, 66.3889, 222.639, 69.1667, 179.583, 28.1945, 200.417, 5.97223, 201.806, 0, 195.556 )
+
+[sub_resource type="ConvexPolygonShape2D" id=32]
+points = PoolVector2Array( 0, 0, 177.5, 0, 175.417, 20.5556, 179.583, 42.0833, 172.639, 69.1667, 192.778, 67.7778, 203.889, 73.3333, 229.583, 58.0556, 256, 62.2222, 256, 196.944, 217.778, 203.889, 183.056, 199.028, 181.667, 192.778, 162.222, 185.833, 159.444, 191.389, 162.917, 225.417, 171.25, 230.278, 181.667, 256, 0, 256 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -371,3 +427,297 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 19/z_index = 0
+20/name = "CobblestoneWall_Outside_Corner_OL_Tile_Small.png 20"
+20/texture = ExtResource( 20 )
+20/tex_offset = Vector2( 0, 0 )
+20/modulate = Color( 1, 1, 1, 1 )
+20/region = Rect2( 0, 0, 256, 256 )
+20/tile_mode = 0
+20/occluder_offset = Vector2( 0, 0 )
+20/navigation_offset = Vector2( 0, 0 )
+20/shape_offset = Vector2( 0, 0 )
+20/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+20/shape = SubResource( 19 )
+20/shape_one_way = false
+20/shape_one_way_margin = 1.0
+20/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+20/z_index = 0
+21/name = "CobblestoneWall_Outside_Corner_OR_Tile_Small.png 21"
+21/texture = ExtResource( 21 )
+21/tex_offset = Vector2( 0, 0 )
+21/modulate = Color( 1, 1, 1, 1 )
+21/region = Rect2( 0, 0, 256, 256 )
+21/tile_mode = 0
+21/occluder_offset = Vector2( 0, 0 )
+21/navigation_offset = Vector2( 0, 0 )
+21/shape_offset = Vector2( 0, 0 )
+21/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+21/shape = SubResource( 20 )
+21/shape_one_way = false
+21/shape_one_way_margin = 1.0
+21/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+21/z_index = 0
+22/name = "CobblestoneWall_Outside_Corner_UR_Tile_Small.png 22"
+22/texture = ExtResource( 16 )
+22/tex_offset = Vector2( 0, 0 )
+22/modulate = Color( 1, 1, 1, 1 )
+22/region = Rect2( 0, 0, 256, 256 )
+22/tile_mode = 0
+22/occluder_offset = Vector2( 0, 0 )
+22/navigation_offset = Vector2( 0, 0 )
+22/shape_offset = Vector2( 0, 0 )
+22/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+22/shape = SubResource( 21 )
+22/shape_one_way = false
+22/shape_one_way_margin = 1.0
+22/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 21 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+22/z_index = 0
+23/name = "CobblestoneWall_Outside_Corner_UL_Tile_Small.png 23"
+23/texture = ExtResource( 19 )
+23/tex_offset = Vector2( 0, 0 )
+23/modulate = Color( 1, 1, 1, 1 )
+23/region = Rect2( 0, 0, 256, 256 )
+23/tile_mode = 0
+23/occluder_offset = Vector2( 0, 0 )
+23/navigation_offset = Vector2( 0, 0 )
+23/shape_offset = Vector2( 0, 0 )
+23/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+23/shape = SubResource( 22 )
+23/shape_one_way = false
+23/shape_one_way_margin = 1.0
+23/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 22 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+23/z_index = 0
+24/name = "CobblestoneWall_Outside_L_Tile_Small.png 24"
+24/texture = ExtResource( 18 )
+24/tex_offset = Vector2( 0, 0 )
+24/modulate = Color( 1, 1, 1, 1 )
+24/region = Rect2( 0, 0, 256, 256 )
+24/tile_mode = 0
+24/occluder_offset = Vector2( 0, 0 )
+24/navigation_offset = Vector2( 0, 0 )
+24/shape_offset = Vector2( 0, 0 )
+24/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+24/shape = SubResource( 23 )
+24/shape_one_way = false
+24/shape_one_way_margin = 1.0
+24/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 23 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+24/z_index = 0
+25/name = "CobblestoneWall_Outside_O_Tile_Small.png 25"
+25/texture = ExtResource( 22 )
+25/tex_offset = Vector2( 0, 0 )
+25/modulate = Color( 1, 1, 1, 1 )
+25/region = Rect2( 0, 0, 256, 256 )
+25/tile_mode = 0
+25/occluder_offset = Vector2( 0, 0 )
+25/navigation_offset = Vector2( 0, 0 )
+25/shape_offset = Vector2( 0, 0 )
+25/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+25/shape = SubResource( 24 )
+25/shape_one_way = false
+25/shape_one_way_margin = 1.0
+25/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 24 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+25/z_index = 0
+26/name = "CobblestoneWall_Outside_R_Tile_Small.png 26"
+26/texture = ExtResource( 23 )
+26/tex_offset = Vector2( 0, 0 )
+26/modulate = Color( 1, 1, 1, 1 )
+26/region = Rect2( 0, 0, 256, 256 )
+26/tile_mode = 0
+26/occluder_offset = Vector2( 0, 0 )
+26/navigation_offset = Vector2( 0, 0 )
+26/shape_offset = Vector2( 0, 0 )
+26/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+26/shape = SubResource( 25 )
+26/shape_one_way = false
+26/shape_one_way_margin = 1.0
+26/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 25 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+26/z_index = 0
+27/name = "CobblestoneWall_Outside_U_Tile_Small.png 27"
+27/texture = ExtResource( 17 )
+27/tex_offset = Vector2( 0, 0 )
+27/modulate = Color( 1, 1, 1, 1 )
+27/region = Rect2( 0, 0, 256, 256 )
+27/tile_mode = 0
+27/occluder_offset = Vector2( 0, 0 )
+27/navigation_offset = Vector2( 0, 0 )
+27/shape_offset = Vector2( 0, 0 )
+27/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+27/shape = SubResource( 26 )
+27/shape_one_way = false
+27/shape_one_way_margin = 1.0
+27/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 26 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+27/z_index = 0
+28/name = "CobblestoneWall_TPiece_U_Tile_Small.png 28"
+28/texture = ExtResource( 25 )
+28/tex_offset = Vector2( 0, 0 )
+28/modulate = Color( 1, 1, 1, 1 )
+28/region = Rect2( 0, 0, 256, 256 )
+28/tile_mode = 0
+28/occluder_offset = Vector2( 0, 0 )
+28/navigation_offset = Vector2( 0, 0 )
+28/shape_offset = Vector2( 0, 0 )
+28/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+28/shape = SubResource( 27 )
+28/shape_one_way = false
+28/shape_one_way_margin = 1.0
+28/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 27 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+28/z_index = 0
+29/name = "CobblestoneWall_TPiece_O_Tile_Small.png 29"
+29/texture = ExtResource( 24 )
+29/tex_offset = Vector2( 0, 0 )
+29/modulate = Color( 1, 1, 1, 1 )
+29/region = Rect2( 0, 0, 256, 256 )
+29/tile_mode = 0
+29/occluder_offset = Vector2( 0, 0 )
+29/navigation_offset = Vector2( 0, 0 )
+29/shape_offset = Vector2( 0, 0 )
+29/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+29/shape = SubResource( 28 )
+29/shape_one_way = false
+29/shape_one_way_margin = 1.0
+29/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 28 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+29/z_index = 0
+30/name = "CobblestoneWall_Outside_TPiece_L_Tile_Small.png 30"
+30/texture = ExtResource( 28 )
+30/tex_offset = Vector2( 0, 0 )
+30/modulate = Color( 1, 1, 1, 1 )
+30/region = Rect2( 0, 0, 256, 256 )
+30/tile_mode = 0
+30/occluder_offset = Vector2( 0, 0 )
+30/navigation_offset = Vector2( 0, 0 )
+30/shape_offset = Vector2( 0, 0 )
+30/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+30/shape = SubResource( 29 )
+30/shape_one_way = false
+30/shape_one_way_margin = 1.0
+30/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 29 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+30/z_index = 0
+31/name = "CobblestoneWall_Outside_TPiece_O_Tile_Small.png 31"
+31/texture = ExtResource( 27 )
+31/tex_offset = Vector2( 0, 0 )
+31/modulate = Color( 1, 1, 1, 1 )
+31/region = Rect2( 0, 0, 256, 256 )
+31/tile_mode = 0
+31/occluder_offset = Vector2( 0, 0 )
+31/navigation_offset = Vector2( 0, 0 )
+31/shape_offset = Vector2( 0, 0 )
+31/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+31/shape = SubResource( 30 )
+31/shape_one_way = false
+31/shape_one_way_margin = 1.0
+31/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+31/z_index = 0
+32/name = "CobblestoneWall_Outside_TPiece_U_Tile_Small.png 32"
+32/texture = ExtResource( 26 )
+32/tex_offset = Vector2( 0, 0 )
+32/modulate = Color( 1, 1, 1, 1 )
+32/region = Rect2( 0, 0, 256, 256 )
+32/tile_mode = 0
+32/occluder_offset = Vector2( 0, 0 )
+32/navigation_offset = Vector2( 0, 0 )
+32/shape_offset = Vector2( 0, 0 )
+32/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+32/shape = SubResource( 31 )
+32/shape_one_way = false
+32/shape_one_way_margin = 1.0
+32/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+32/z_index = 0
+33/name = "CobblestoneWall_Outside_TPiece_R_Tile_Small.png 33"
+33/texture = ExtResource( 29 )
+33/tex_offset = Vector2( 0, 0 )
+33/modulate = Color( 1, 1, 1, 1 )
+33/region = Rect2( 0, 0, 256, 256 )
+33/tile_mode = 0
+33/occluder_offset = Vector2( 0, 0 )
+33/navigation_offset = Vector2( 0, 0 )
+33/shape_offset = Vector2( 0, 0 )
+33/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+33/shape = SubResource( 32 )
+33/shape_one_way = false
+33/shape_one_way_margin = 1.0
+33/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 32 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+33/z_index = 0
