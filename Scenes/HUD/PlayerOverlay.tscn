@@ -58,7 +58,6 @@ playing = true
 position = Vector2( 291, 37 )
 scale = Vector2( 0.12249, 0.12249 )
 frames = SubResource( 2 )
-frame = 2
 playing = true
 
 [node name="ColorRect2" type="ColorRect" parent="AngryFace"]

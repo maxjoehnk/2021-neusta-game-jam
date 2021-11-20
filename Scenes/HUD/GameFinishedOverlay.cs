@@ -2,8 +2,8 @@ using Godot;
 
 public class GameFinishedOverlay : Node2D
 {
-    private AnimatedSprite CatWin => GetNode<AnimatedSprite>("CatWin");
-    private AnimatedSprite MouseWin => GetNode<AnimatedSprite>("MouseWin");
+    private Node2D CatWin => GetNode<Node2D>("CatWin");
+    private Node2D MouseWin => GetNode<Node2D>("MouseWin");
 
     [Signal]
     delegate void RestartGame();
