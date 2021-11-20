@@ -51,7 +51,11 @@ shape = SubResource( 3 )
 
 [node name="JumpCooldown" type="Timer" parent="."]
 process_mode = 0
-wait_time = 10.0
+one_shot = true
+
+[node name="DashTime" type="Timer" parent="JumpCooldown"]
+process_mode = 0
+wait_time = 0.1
 one_shot = true
 
 [node name="AngryEyes" type="Sprite" parent="."]

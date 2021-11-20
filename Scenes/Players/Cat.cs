@@ -6,8 +6,9 @@ public class Cat : Player
 {
     private CatSpitter Spitter => GetNode<CatSpitter>("AnimatedSprite/CatSpitter");
     private Timer JumpCoolDown => GetNode<Timer>("JumpCooldown");
+    private Timer DashTime => GetNode<Timer>("JumpCooldown/DashTime");
     private bool usedJump = false;
-    private float jumpSpeed = 1000;
+    private float jumpSpeed = 50;
 
     public Cat() : base(1, 0.99f, 0.5f)
     {
@@ -38,12 +39,15 @@ public class Cat : Player
 
         this.Velocity = (this.Velocity.Length() + jumpSpeed) * direction;
         JumpCoolDown.Start();
+        DashTime.Start();
         usedJump = true;
     }
 
     protected override void PrePhysic()
     {
-        if (!this.usedJump)
+
+
+        if (!this.usedJump || !DashTime.IsStopped())
         {
             return;
         }
