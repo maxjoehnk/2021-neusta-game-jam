@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class PlayerOverlay : CanvasLayer
+public class PlayerOverlay : Node2D
 {
     private AnimatedSprite Heart1 => GetNode<AnimatedSprite>("Heart1");
     private AnimatedSprite Heart2 => GetNode<AnimatedSprite>("Heart2");
@@ -9,7 +9,7 @@ public class PlayerOverlay : CanvasLayer
 
     private AnimatedSprite[] Hearts => new[] { Heart1, Heart2, Heart3 };
     private AnimatedSprite AngryFace => GetNode<AnimatedSprite>("AngryFace");
-
+    
     public void SetHunting(bool hunting)
     {
         if (hunting)

@@ -54,6 +54,12 @@ public abstract class Player : KinematicBody2D
         this._PostPhysics();
     }
 
+    public void Reset()
+    {
+        this.Lives = 3;
+        this.IsHunting = false;
+    }
+
     protected virtual void _PostPhysics()
     {
     }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Game.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=2]
@@ -7,18 +7,11 @@
 [ext_resource path="res://Scenes/Players/Mouse.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Players/PlayerCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://world_2d.tres" type="World" id=7]
+[ext_resource path="res://Scenes/HUD/GameFinishedOverlay.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/HUD/PlayerOverlay.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node"]
 script = ExtResource( 1 )
-
-[node name="CatOverlay" parent="." instance=ExtResource( 13 )]
-
-[node name="MouseOverlay" parent="." instance=ExtResource( 13 )]
-offset = Vector2( 1920, 0 )
-rotation = 3.14159
-scale = Vector2( 1, -1 )
-transform = Transform2D( -1, 0, 0, 1, 1920, 0 )
 
 [node name="Viewports" type="HBoxContainer" parent="."]
 margin_right = 1920.0
@@ -75,3 +68,18 @@ render_target_update_mode = 3
 
 [node name="ClockOverlay" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 136 )
+
+[node name="Overlays" type="CanvasLayer" parent="."]
+
+[node name="CatOverlay" parent="Overlays" instance=ExtResource( 13 )]
+
+[node name="MouseOverlay" parent="Overlays" instance=ExtResource( 13 )]
+position = Vector2( 1920, 0 )
+rotation = -3.14159
+scale = Vector2( 1, -1 )
+
+[node name="GameFinishedOverlay" parent="Overlays" instance=ExtResource( 8 )]
+position = Vector2( 960, 540 )
+scale = Vector2( 0.42619, 0.42619 )
+
+[connection signal="RestartGame" from="Overlays/GameFinishedOverlay" to="." method="RestartGame"]

@@ -3,21 +3,29 @@ using System;
 
 public class Game : Node
 {
+    private const float InitialClockRotation = 180;
+    
     private Viewport CatViewport => GetNode<Viewport>("Viewports/CatView/Viewport");
     private PlayerCamera CatCamera => GetNode<PlayerCamera>("Viewports/CatView/Viewport/Camera");
     private Viewport MouseViewport => GetNode<Viewport>("Viewports/MouseView/Viewport");
     private PlayerCamera MouseCamera => GetNode<PlayerCamera>("Viewports/MouseView/Viewport/Camera");
     private Cat Cat => GetNode<Cat>("Viewports/CatView/Viewport/Cat");
-    private PlayerOverlay CatOverlay => GetNode<PlayerOverlay>("CatOverlay");
+    private PlayerOverlay CatOverlay => GetNode<PlayerOverlay>("Overlays/CatOverlay");
     private Mouse Mouse => GetNode<Mouse>("Viewports/CatView/Viewport/Mouse");
-    private PlayerOverlay MouseOverlay => GetNode<PlayerOverlay>("MouseOverlay");
+    private PlayerOverlay MouseOverlay => GetNode<PlayerOverlay>("Overlays/MouseOverlay");
 
     private TileMap Map => GetNode<TileMap>("Viewports/CatView/Viewport/Map");
 
     private CanvasModulate CanvasTint => GetNode<CanvasModulate>("CanvasModulate");
-    private TextureRect Clock => GetNode<TextureRect>("ClockOverlay/Clock");
+    private Sprite Clock => GetNode<Sprite>("ClockOverlay/Clock");
+    private GameFinishedOverlay WinnerScreen => GetNode<GameFinishedOverlay>("Overlays/GameFinishedOverlay");
+
+    private bool IsNight => this.clockRotation > 180;
     
-    private float clockRotation = 180;
+    private float clockRotation = InitialClockRotation;
+
+    private GameState state = GameState.Playing;
+    private PlayerRole? winner;
     
     public override void _Ready()
     {
@@ -29,15 +37,87 @@ public class Game : Node
 
     public override void _Process(float delta)
     {
-        bool isNight = UpdateClock(delta);
-        Cat.IsHunting = isNight;
-        Mouse.IsHunting = !isNight;
+        UpdateClock(delta);
+        UpdatePlayers();
+
+        UpdateGameState();
+        ApplyGameState();
+    }
+
+    private void UpdatePlayers()
+    {
+        Cat.IsHunting = IsNight;
+        Mouse.IsHunting = !IsNight;
         
         UpdatePlayerHUD(Cat, CatOverlay);
         UpdatePlayerHUD(Mouse, MouseOverlay);
     }
 
-    private bool UpdateClock(float delta)
+    public void RestartGame()
+    {
+        this.Cat.Reset();
+        this.Mouse.Reset();
+        this.clockRotation = InitialClockRotation;
+        this.state = GameState.Playing;
+        this.winner = null;
+        this.UpdatePlayers();
+        this.ApplyGameState();
+    }
+
+    private void UpdateGameState()
+    {
+        if (this.Cat.Lives == 0 || this.Mouse.Lives == 0)
+        {
+            this.state = GameState.WinnerScreen;
+        }
+
+        if (this.Cat.Lives == 0)
+        {
+            this.winner = PlayerRole.Mouse;
+        }
+
+        if (this.Mouse.Lives == 0)
+        {
+            this.winner = PlayerRole.Cat;
+        }
+    }
+
+    private void ApplyGameState()
+    {
+        this.ApplyPlayingState();
+        this.ApplyWinnerScreenState();
+    }
+
+    private void ApplyPlayingState()
+    {
+        if (this.state != GameState.Playing)
+        {
+            return;
+        }
+
+        GetTree().Paused = false;
+        this.CatOverlay.Show();
+        this.MouseOverlay.Show();
+        this.Clock.Show();
+        this.WinnerScreen.Hide();
+    }
+
+    private void ApplyWinnerScreenState()
+    {
+        if (this.state != GameState.WinnerScreen)
+        {
+            return;
+        }
+        
+        GetTree().Paused = true;
+        this.CatOverlay.Hide();
+        this.MouseOverlay.Hide();
+        this.Clock.Hide();
+        this.WinnerScreen.Show();
+        this.WinnerScreen.SetWinner((PlayerRole)this.winner);
+    }
+
+    private void UpdateClock(float delta)
     {
         const int ClockRotationSpeed = 5;
         this.clockRotation += delta * ClockRotationSpeed;
@@ -46,13 +126,9 @@ public class Game : Node
             this.clockRotation -= 360;
         }
 
-        bool isNight = this.clockRotation > 180;
-
-        CanvasTint.Color = isNight ? Colors.MidnightBlue : Colors.Orange;
+        CanvasTint.Color = IsNight ? Colors.MidnightBlue : Colors.Orange;
         CanvasTint.Color = CanvasTint.Color.Lightened(0.7f);
-        Clock.RectRotation = this.clockRotation;
-
-        return isNight;
+        Clock.RotationDegrees = this.clockRotation;
     }
 
     private void UpdatePlayerHUD(Player player, PlayerOverlay hud)
