@@ -5,9 +5,9 @@ public class Cat : Player
 {
     private CatSpitter Spitter => GetNode<CatSpitter>("AnimatedSprite/CatSpitter");
     
-    public Cat() : base(1)
+    public Cat() : base(1, 0.9f, 0.95f)
     {
-        this.speed = new Vector2(576, 576);
+        this.speed = new Vector2(756, 756);
         this.IsHunting = true;
     }
 

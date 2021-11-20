@@ -8,28 +8,32 @@ public abstract class Player : KinematicBody2D
 {
     protected Vector2 speed = new Vector2(576, 576);
     private readonly int PlayerNumber;
-    private Vector2 velocity = Vector2.Zero;
+    protected Vector2 velocity = Vector2.Zero;
 
     private Object lastCollision;
 
     public bool IsHunting { get; set; }
     public int Lives { get; set; }
 
-    protected Player(int playerNumber)
+    protected float lowpassVel;
+    protected float lowpassRot;
+
+    protected Player(int playerNumber, float lowpassVel_in, float lowpassRot_in)
     {
         this.PlayerNumber = playerNumber;
         this.IsHunting = false;
         this.Lives = 3;
+        this.lowpassVel = lowpassVel_in;
+        this.lowpassRot = lowpassRot_in;
     }
 
     public override void _PhysicsProcess(float delta)
     {
         Vector2 direction = GetDirection();
-        this.Rotation = direction.Angle() - (float)(Math.PI / 2);
-        this.velocity = direction * this.speed;
-        // this.velocity = CalculateMoveVelocity(direction, this.speed);
 
-        KinematicCollision2D collision = MoveAndCollide(this.velocity * delta);
+        setVelocityAndRotation(delta, direction.Angle() - (float)(Math.PI / 2), direction);
+
+        KinematicCollision2D collision = MoveAndCollide(this.velocity);
         if (collision != null)
         {
             this.velocity = this.velocity.Bounce(collision.Normal);
@@ -50,7 +54,6 @@ public abstract class Player : KinematicBody2D
         {
             this.lastCollision = null;
         }
-        // this.velocity = MoveAndSlide(this.velocity);
         this._PostPhysics();
     }
 
@@ -63,7 +66,20 @@ public abstract class Player : KinematicBody2D
     protected virtual void _PostPhysics()
     {
     }
+    private void setVelocityAndRotation(float delta, float currentRotation, Vector2 direction)
+    {
+        this.velocity = this.velocity * lowpassVel + (1.0f - lowpassVel) * direction * this.speed * delta;
 
+        if (direction.Length() > 0)
+        {
+            float otherRot = currentRotation;
+            if ((this.Rotation - currentRotation) > Math.PI)
+            {
+                this.Rotation -= (float)Math.PI * 2;
+            }
+            this.Rotation = this.Rotation * lowpassRot + currentRotation * (1.0f - lowpassRot);
+        }
+    }
     private Vector2 GetDirection()
     {
         float x = Input.GetActionStrength($"p{this.PlayerNumber}_right") -
@@ -74,12 +90,5 @@ public abstract class Player : KinematicBody2D
         return new Vector2(x, y);
     }
 
-    private Vector2 CalculateMoveVelocity(Vector2 direction, Vector2 speed)
-    {
-        Vector2 velocity = this.velocity;
-        // velocity.x = speed.x * direction.x;
-        // velocity.y = speed.y * direction.y;
 
-        return velocity;
-    }
 }
