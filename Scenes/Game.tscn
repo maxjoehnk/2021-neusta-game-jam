@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/Game.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/MainOverlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Cat.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Mouse.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/PlayerCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world_2d.tres" type="World" id=7]
+[ext_resource path="res://Scenes/PlayerOverlay.tscn" type="PackedScene" id=13]
+
+[node name="Node2D" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MainOverlay" parent="." instance=ExtResource( 3 )]
+
+[node name="CatOverlay" parent="." instance=ExtResource( 13 )]
+
+[node name="MouseOverlay" parent="." instance=ExtResource( 13 )]
+offset = Vector2( 1920, 0 )
+rotation = 3.14159
+scale = Vector2( 1, -1 )
+transform = Transform2D( -1, 0, 0, 1, 1920, 0 )
+
+[node name="Viewports" type="HBoxContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_constants/separation = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CatView" type="ViewportContainer" parent="Viewports"]
+margin_right = 959.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Viewports/CatView"]
+size = Vector2( 959, 1080 )
+world = ExtResource( 7 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" parent="Viewports/CatView/Viewport" instance=ExtResource( 6 )]
+
+[node name="Map" parent="Viewports/CatView/Viewport" instance=ExtResource( 2 )]
+
+[node name="Cat" parent="Viewports/CatView/Viewport" instance=ExtResource( 4 )]
+position = Vector2( 384, 384 )
+
+[node name="Mouse" parent="Viewports/CatView/Viewport" instance=ExtResource( 5 )]
+position = Vector2( 832, 384 )
+
+[node name="MouseView" type="ViewportContainer" parent="Viewports"]
+margin_left = 961.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stretch = true
+
+[node name="Viewport" type="Viewport" parent="Viewports/MouseView"]
+size = Vector2( 959, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" parent="Viewports/MouseView/Viewport" instance=ExtResource( 6 )]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

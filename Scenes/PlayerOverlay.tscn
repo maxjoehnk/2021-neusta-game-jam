@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/HunterIndicator/AngryFace-1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Heart/Heart.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://Assets/HunterIndicator/AngryFace-2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HunterIndicator/AngryFace-3.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PlayerOverlay.cs" type="Script" id=5]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Control" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="Heart1" type="AnimatedSprite" parent="."]
+position = Vector2( 32, 40 )
+scale = Vector2( 0.0779725, 0.0779725 )
+frames = ExtResource( 2 )
+animation = "alive"
+frame = 3
+playing = true
+
+[node name="Heart2" type="AnimatedSprite" parent="."]
+position = Vector2( 96, 40 )
+scale = Vector2( 0.0779725, 0.0779725 )
+frames = ExtResource( 2 )
+animation = "alive"
+playing = true
+
+[node name="Heart3" type="AnimatedSprite" parent="."]
+position = Vector2( 160, 40 )
+scale = Vector2( 0.0779725, 0.0779725 )
+frames = ExtResource( 2 )
+animation = "alive"
+playing = true
+
+[node name="AngryFace" type="AnimatedSprite" parent="."]
+position = Vector2( 291, 37 )
+scale = Vector2( 0.12249, 0.12249 )
+frames = SubResource( 2 )
+playing = true

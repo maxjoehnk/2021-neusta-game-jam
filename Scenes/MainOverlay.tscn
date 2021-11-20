@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Clock.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Clock.cs" type="Script" id=2]
+[ext_resource path="res://Assets/ClockMask.png" type="Texture" id=3]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="Light2D" type="Light2D" parent="."]
+visible = false
+position = Vector2( 512, 143 )
+scale = Vector2( 0.227451, 0.227451 )
+texture = ExtResource( 3 )
+mode = 2
+
+[node name="Clock" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -512.0
+margin_top = -368.0
+margin_right = 512.0
+margin_bottom = 656.0
+rect_scale = Vector2( 0.225014, 0.225014 )
+rect_pivot_offset = Vector2( 512, 512 )
+rect_clip_content = true
+texture = ExtResource( 1 )
+stretch_mode = 1
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
