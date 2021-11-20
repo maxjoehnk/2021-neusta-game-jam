@@ -32,6 +32,10 @@ public abstract class Player : KinematicBody2D
         Vector2 direction = GetDirection();
 
         setVelocityAndRotation(delta, direction.Angle() - (float)(Math.PI / 2), direction);
+        if (Input.IsActionJustPressed($"p{this.PlayerNumber}_special"))
+        {
+            useSpecialMove();
+        }
 
         KinematicCollision2D collision = MoveAndCollide(this.velocity);
         if (collision != null)
@@ -83,7 +87,9 @@ public abstract class Player : KinematicBody2D
     }
 
     protected abstract void Attack();
-    
+
+    protected abstract void useSpecialMove();
+
     private Vector2 GetDirection()
     {
         float x = Input.GetActionStrength($"p{this.PlayerNumber}_right") -

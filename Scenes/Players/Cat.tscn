@@ -47,3 +47,8 @@ one_shot = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 2.30791, 3.44745 )
 shape = SubResource( 3 )
+
+[node name="JumpCooldown" type="Timer" parent="."]
+process_mode = 0
+wait_time = 10.0
+one_shot = true
