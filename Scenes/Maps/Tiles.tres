@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=26 format=2]
+[gd_resource type="TileSet" load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Map/CobblestoneWall_MiddleV_Tile_Small.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Planks_Tile_Small.png" type="Texture" id=2]
@@ -30,6 +30,21 @@ points = PoolVector2Array( 0, 60.3326, 4.94986, 59.8504, 27.1335, 83.4808, 72.46
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 0.326019, 62.2821, 5.90765, 60.3286, 26.2806, 85.1668, 50.2816, 68.4219, 74.2827, 59.2122, 75.1199, 49.7235, 77.6316, 45.5372, 76.2362, 22.9316, 79.027, 11.4893, 58.6541, 0, 177.752, 0.046936, 174.961, 20.9781, 176.636, 25.7224, 177.194, 44.1418, 176.357, 50.5607, 176.357, 56.1423, 169.659, 69.2592, 169.38, 74.2826, 178.31, 94.9347, 178.589, 105.819, 173.287, 111.68, 171.612, 117.261, 163.519, 118.378, 165.473, 132.366, 169.659, 133.204, 156.821, 166.135, 152.356, 170.043, 145.937, 170.322, 140.076, 175.345, 128.634, 172.833, 124.727, 178.799, 112.447, 181.973, 85.2366, 176.392, 69.608, 180.02, 65.98, 180.02, 38.7695, 191.288, 25.3736, 201.335, 7.30307, 200.497, 0, 194.637 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 0.609558, 60.4089, 5.91437, 59.4445, 27.1335, 85.0038, 69.0895, 59.9267, 77.7701, 60.8912, 89.8264, 82.5926, 126.96, 74.8766, 135.158, 81.1458, 159.753, 66.6783, 168.434, 72.9475, 180.008, 103.329, 172.292, 112.492, 179.525, 122.137, 179.043, 130.336, 171.809, 132.747, 156.86, 168.916, 139.498, 175.185, 128.407, 172.774, 118.279, 181.816, 81.6281, 177.476, 67.6427, 181.334, 48.8349, 187.603, 28.5802, 201.106, 9.29013, 202.071, 0, 194.355 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 177.596, 0.127319, 174.221, 21.3465, 177.114, 25.6867, 178.079, 40.1543, 175.667, 49.7994, 176.632, 55.1042, 170.363, 68.125, 166.987, 76.3233, 158.306, 69.5717, 136.123, 83.5571, 126.96, 77.2878, 122.62, 79.2168, 91.7554, 85.0038, 82.5926, 83.0748, 71.983, 57.9977, 72.4653, 48.8349, 77.2878, 44.9769, 76.8056, 25.6867, 79.2168, 11.2191, 59.4444, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 256, 193.704, 214.537, 202.963, 202.384, 200.648, 182.13, 197.176, 181.551, 191.968, 168.241, 185.602, 143.935, 183.287, 136.991, 182.708, 136.991, 172.87, 128.31, 172.87, 123.102, 180.393, 110.37, 181.551, 79.1204, 172.292, 73.912, 160.718, 73.3333, 151.458, 69.2824, 146.25, 68.7037, 137.569, 73.3333, 124.259, 72.1759, 116.736, 76.2269, 112.685, 71.0185, 105.162, 71.0185, 91.8518, 81.4352, 84.9074, 88.9583, 82.0139, 122.523, 73.3333, 134.676, 80.8564, 160.139, 67.5463, 167.083, 71.0185, 191.968, 68.7037, 204.699, 73.3333, 231.898, 58.287, 256, 61.7592 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 57.7083, 255.838, 49.6065, 251.208, 49.6065, 235.583, 66.3889, 222.852, 68.7037, 177.713, 65.2315, 174.241, 73.912, 159.194, 67.5463, 144.148, 73.912, 127.366, 72.7546, 115.213, 72.1759, 105.954, 73.912, 92.6435, 81.4352, 89.75, 92.4305, 90.9074, 92.4305, 80.4908, 127.153, 75.8611, 136.412, 79.912, 158.981, 66.6019, 167.662, 71.2315, 180.972, 102.482, 171.713, 114.056, 174.028, 120.421, 153.773, 169.032, 161.296, 180.028, 158.981, 191.023, 163.611, 207.227, 161.296, 226.324, 174.028, 233.847, 178.079, 256 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 0, 62.5278, 8.05554, 59.75, 28.1945, 84.75, 73.3333, 58.3611, 74.0278, 49.3333, 78.8889, 45.1667, 79.5833, 11.8333, 57.3611, 0.722229, 178.194, 0, 174.028, 20.1667, 179.583, 38.2222, 176.111, 54.8889, 170.556, 70.1667, 193.472, 68.7778, 204.583, 72.9445, 232.361, 58.3611, 256, 59.75, 256, 195.167, 215, 204.889, 179.583, 198.639, 178.194, 190.306, 162.222, 186.139, 158.056, 191, 160.833, 206.278, 160.833, 225.028, 171.944, 229.889, 178.194, 256, 58.0555, 256, 47.6389, 250.028, 49.7222, 238.917, 67.7778, 221.556, 69.1667, 180.583, 44.1667, 187.528, 27.5, 202.806, 8.75, 202.111, 0, 194.472 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -261,9 +276,16 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 15/navigation_offset = Vector2( 0, 0 )
 15/shape_offset = Vector2( 0, 0 )
 15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape = SubResource( 14 )
 15/shape_one_way = false
-15/shape_one_way_margin = 0.0
-15/shapes = [  ]
+15/shape_one_way_margin = 1.0
+15/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 15/z_index = 0
 16/name = "CobblestoneWall_Endcap_O_Tile_Small.png 16"
 16/texture = ExtResource( 12 )
@@ -275,9 +297,16 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 16/navigation_offset = Vector2( 0, 0 )
 16/shape_offset = Vector2( 0, 0 )
 16/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+16/shape = SubResource( 15 )
 16/shape_one_way = false
-16/shape_one_way_margin = 0.0
-16/shapes = [  ]
+16/shape_one_way_margin = 1.0
+16/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 16/z_index = 0
 17/name = "CobblestoneWall_Endcap_R_Tile_Small.png 17"
 17/texture = ExtResource( 9 )
@@ -289,9 +318,16 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 17/navigation_offset = Vector2( 0, 0 )
 17/shape_offset = Vector2( 0, 0 )
 17/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+17/shape = SubResource( 16 )
 17/shape_one_way = false
-17/shape_one_way_margin = 0.0
-17/shapes = [  ]
+17/shape_one_way_margin = 1.0
+17/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 17/z_index = 0
 18/name = "CobblestoneWall_Endcap_U_Tile_Small.png 18"
 18/texture = ExtResource( 3 )
@@ -303,9 +339,16 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 18/navigation_offset = Vector2( 0, 0 )
 18/shape_offset = Vector2( 0, 0 )
 18/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+18/shape = SubResource( 17 )
 18/shape_one_way = false
-18/shape_one_way_margin = 0.0
-18/shapes = [  ]
+18/shape_one_way_margin = 1.0
+18/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 18/z_index = 0
 19/name = "CobblestoneWall_XPiece_Tile_Small.png 19"
 19/texture = ExtResource( 10 )
@@ -317,7 +360,14 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 19/navigation_offset = Vector2( 0, 0 )
 19/shape_offset = Vector2( 0, 0 )
 19/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+19/shape = SubResource( 18 )
 19/shape_one_way = false
-19/shape_one_way_margin = 0.0
-19/shapes = [  ]
+19/shape_one_way_margin = 1.0
+19/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
 19/z_index = 0
