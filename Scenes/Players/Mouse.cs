@@ -10,9 +10,9 @@ public class Mouse : Player
     protected override Timer SpecialTimer { get; }
     protected override Timer AttackTimer => Thrower.Cooldown;
     
-    public Mouse() : base(2, 0.0f, 0.0f)
+    public Mouse() : base(2)
     {
-        this.speed = new Vector2(768f, 768f);
+        this.Speed = new Vector2(768f, 768f);
         this.IsHunting = false;
     }
 

@@ -11,7 +11,7 @@ public class Cat : Player
 
     public Cat() : base(1, 0.99f, 0.5f)
     {
-        this.speed = new Vector2(2048, 2048);
+        this.Speed = new Vector2(2048, 2048);
         this.IsHunting = true;
     }
 
@@ -36,19 +36,21 @@ public class Cat : Player
         float rotation = this.Rotation + (float)(Math.PI / 2);
         Vector2 direction = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
 
-        this.velocity = (this.velocity.Length() + jumpSpeed) * direction;
+        this.Velocity = (this.Velocity.Length() + jumpSpeed) * direction;
         JumpCoolDown.Start();
         usedJump = true;
     }
 
     protected override void PrePhysic()
     {
-        if (usedJump)
+        if (!this.usedJump)
         {
-            usedJump = false;
-            float rotation = this.Rotation + (float)(Math.PI / 2);
-            Vector2 direction = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
-            this.velocity = 10 * direction;
+            return;
         }
+
+        this.usedJump = false;
+        float rotation = this.Rotation + (float)(Math.PI / 2);
+        Vector2 direction = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
+        this.Velocity = 10 * direction;
     }
 }
