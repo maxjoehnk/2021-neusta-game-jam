@@ -12,6 +12,8 @@ public abstract class Player : KinematicBody2D
     protected Vector2 Velocity = Vector2.Zero;
 
     private Object lastCollision;
+    
+    private Sprite AngryEyes => GetNode<Sprite>("AngryEyes");
 
     public bool IsHunting { get; set; }
     public int Lives { get; private set; }
@@ -32,6 +34,18 @@ public abstract class Player : KinematicBody2D
         this.Lives = 3;
         this.lowPassVelocity = lowPassVelocity;
         this.lowPassRotation = lowPassRotation;
+    }
+    
+    public override void _Process(float delta)
+    {
+        if (this.IsHunting)
+        {
+            this.AngryEyes.Show();
+        }
+        else
+        {
+            this.AngryEyes.Hide();
+        }
     }
 
     public override void _PhysicsProcess(float delta)

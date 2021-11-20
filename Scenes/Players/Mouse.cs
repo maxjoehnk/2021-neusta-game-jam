@@ -5,7 +5,6 @@ using Godot;
 public class Mouse : Player
 {
     private CheeseThrower Thrower => GetNode<CheeseThrower>("AnimatedSprite/CheeseThrower");
-    private Sprite AngryEyes => GetNode<Sprite>("AngryEyes");
 
     protected override Timer SpecialTimer { get; }
     protected override Timer AttackTimer => Thrower.Cooldown;
@@ -14,18 +13,6 @@ public class Mouse : Player
     {
         this.Speed = new Vector2(768f, 768f);
         this.IsHunting = false;
-    }
-
-    public override void _Process(float delta)
-    {
-        if (this.IsHunting)
-        {
-            this.AngryEyes.Show();
-        }
-        else
-        {
-            this.AngryEyes.Hide();
-        }
     }
 
     protected override void Attack()
