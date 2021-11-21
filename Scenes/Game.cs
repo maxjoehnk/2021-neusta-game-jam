@@ -22,6 +22,7 @@ public class Game : Node
     private CanvasModulate CanvasTint => GetNode<CanvasModulate>("CanvasModulate");
     private Sprite Clock => GetNode<Sprite>("ClockOverlay/Clock");
     private GameFinishedOverlay WinnerScreen => GetNode<GameFinishedOverlay>("Overlays/GameFinishedOverlay");
+    private PauseMenu PauseMenu => GetNode<PauseMenu>("Overlays/PauseMenu");
 
     private bool IsNight => this.clockRotation > 180;
 
@@ -38,6 +39,8 @@ public class Game : Node
         this.Mouse.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
         this.Cat.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
         this.WinnerScreen.Connect(nameof(GameFinishedOverlay.RestartGame), this, nameof(this.RestartGame));
+        this.PauseMenu.Connect(nameof(PauseMenu.RestartGame), this, nameof(this.RestartGame));
+        this.PauseMenu.Connect(nameof(PauseMenu.ResumeGame), this, nameof(this.ResumeGame));
         SetupCameraLimits();
         // HACK[max]: we run into hit detection once at the start of the game. This should be replaced by PlacePlayers
         RestartGame();
@@ -50,6 +53,11 @@ public class Game : Node
 
         UpdateGameState();
         ApplyGameState();
+    }
+
+    public void ResumeGame()
+    {
+        this.state = GameState.Playing;
     }
 
     [UsedImplicitly]
@@ -97,6 +105,11 @@ public class Game : Node
 
     private void UpdateGameState()
     {
+        if (Input.IsActionJustPressed("pause") && this.state == GameState.Playing)
+        {
+            this.state = GameState.Paused;
+            return;
+        }
         if (this.Cat.Lives == 0 || this.Mouse.Lives == 0)
         {
             this.state = GameState.WinnerScreen;
@@ -117,6 +130,18 @@ public class Game : Node
     {
         this.ApplyPlayingState();
         this.ApplyWinnerScreenState();
+        this.ApplyPausedState();
+    }
+
+    private void ApplyPausedState()
+    {
+        if (this.state != GameState.Paused)
+        {
+            return;
+        }
+        
+        GetTree().Paused = true;
+        this.PauseMenu.Show();
     }
 
     private void ApplyPlayingState()
@@ -131,6 +156,7 @@ public class Game : Node
         this.MouseOverlay.Show();
         this.Clock.Show();
         this.WinnerScreen.Hide();
+        this.PauseMenu.Hide();
     }
 
     private void ApplyWinnerScreenState()
@@ -146,6 +172,7 @@ public class Game : Node
         this.Clock.Hide();
         this.WinnerScreen.Show();
         this.WinnerScreen.SetWinner((PlayerRole)this.winner);
+        this.PauseMenu.Hide();
     }
 
     private void UpdateClock(float delta)

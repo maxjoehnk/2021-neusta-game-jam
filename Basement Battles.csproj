@@ -9,5 +9,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="README.md" />
+    <Content Include="Scenes\HUD\PauseMenu.tscn" />
   </ItemGroup>
 </Project>

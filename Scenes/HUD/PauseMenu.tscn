@@ -1,0 +1,165 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/HUD/PauseMenu.cs" type="Script" id=1]
+[ext_resource path="res://Assets/HUD/Pause.png" type="Texture" id=2]
+[ext_resource path="res://Assets/HUD/ExitHover.png" type="Texture" id=3]
+[ext_resource path="res://Assets/HUD/ExitNormal.png" type="Texture" id=4]
+[ext_resource path="res://Assets/HUD/ResumePressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/HUD/ResumeHover.png" type="Texture" id=6]
+[ext_resource path="res://Assets/HUD/ExitPressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/HUD/ResumeNormal.png" type="Texture" id=8]
+[ext_resource path="res://Assets/HUD/RestartHover.png" type="Texture" id=9]
+[ext_resource path="res://Assets/HUD/RestartNormal.png" type="Texture" id=10]
+[ext_resource path="res://Assets/HUD/RestartPressed.png" type="Texture" id=11]
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [  ]
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+color = Color( 0, 0, 0, 0.721569 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 492.0
+margin_top = 98.0
+margin_right = 1516.0
+margin_bottom = 1122.0
+rect_min_size = Vector2( 128, 128 )
+rect_scale = Vector2( 0.280855, 0.280855 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -202.0
+margin_right = 20.0
+margin_bottom = -162.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="CenterContainer"]
+position = Vector2( 65, 2 )
+scale = Vector2( 0.171599, 0.171599 )
+texture = ExtResource( 2 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = -102.0
+margin_right = 912.0
+margin_bottom = 922.0
+rect_scale = Vector2( 0.175586, 0.175586 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResumeButton" type="TextureButton" parent="CenterContainer2"]
+margin_top = 231.0
+margin_right = 1148.0
+margin_bottom = 792.0
+rect_min_size = Vector2( 128, 128 )
+focus_neighbour_top = NodePath("../../CenterContainer4/ExitButton")
+focus_neighbour_bottom = NodePath("../../CenterContainer3/RestartButton")
+focus_next = NodePath("../../CenterContainer3/RestartButton")
+focus_previous = NodePath("../../CenterContainer4/ExitButton")
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer3" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = 1.0
+margin_right = 912.0
+margin_bottom = 1025.0
+rect_scale = Vector2( 0.175586, 0.175586 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="TextureButton" parent="CenterContainer3"]
+margin_top = 231.0
+margin_right = 1148.0
+margin_bottom = 792.0
+rect_min_size = Vector2( 128, 128 )
+focus_neighbour_top = NodePath("../../CenterContainer2/ResumeButton")
+focus_neighbour_bottom = NodePath("../../CenterContainer4/ExitButton")
+focus_next = NodePath("../../CenterContainer4/ExitButton")
+focus_previous = NodePath("../../CenterContainer2/ResumeButton")
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 9 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer4" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -112.0
+margin_top = 101.0
+margin_right = 912.0
+margin_bottom = 1125.0
+rect_scale = Vector2( 0.175586, 0.175586 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="TextureButton" parent="CenterContainer4"]
+margin_top = 231.0
+margin_right = 1148.0
+margin_bottom = 792.0
+rect_min_size = Vector2( 128, 128 )
+focus_neighbour_top = NodePath("../../CenterContainer3/RestartButton")
+focus_neighbour_bottom = NodePath("../../CenterContainer2/ResumeButton")
+focus_next = NodePath("../../CenterContainer2/ResumeButton")
+focus_previous = NodePath("../../CenterContainer3/RestartButton")
+mouse_default_cursor_shape = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 3 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
