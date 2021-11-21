@@ -17,7 +17,7 @@ public class CatSpit : RigidBody2D
     {
         float speedScale = Math.Min(this.LinearVelocity.Length() / 150, 1);
         this.Sprite.SpeedScale = speedScale;
-        if (this.LinearVelocity.Length() < 10)
+        if (this.LinearVelocity.Length() < 30)
         {
             this.SpawnOnFloor();
             return;
