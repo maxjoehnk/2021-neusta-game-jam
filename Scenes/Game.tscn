@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Game.cs" type="Script" id=1]
 [ext_resource path="res://Scenes/Maps/Map4.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Players/PlayerCamera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://world_2d.tres" type="World" id=7]
 [ext_resource path="res://Scenes/HUD/GameFinishedOverlay.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Sounds/Main Title.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/HUD/PlayerOverlay.tscn" type="PackedScene" id=13]
 
 [node name="Node2D" type="Node"]
@@ -90,3 +91,8 @@ scale = Vector2( 1, -1 )
 [node name="GameFinishedOverlay" parent="Overlays" instance=ExtResource( 8 )]
 position = Vector2( 960, 540 )
 scale = Vector2( 0.42619, 0.42619 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -39.592
+autoplay = true
