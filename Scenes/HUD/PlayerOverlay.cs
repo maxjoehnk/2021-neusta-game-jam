@@ -43,14 +43,7 @@ public class PlayerOverlay : Node2D
 
     public void SetHunting(bool hunting)
     {
-        if (hunting)
-        {
-            this.AngryFace.Show();
-        }
-        else
-        {
-            this.AngryFace.Hide();
-        }
+        this.AngryFace.Visible = hunting;
     }
 
     public void SetLives(int lives)
