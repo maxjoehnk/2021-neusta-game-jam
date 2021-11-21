@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Mouse/Mouse-2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Mouse.cs" type="Script" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://Assets/Mouse/Mouse-1_Shaded.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Mouse/Mouse-3_Shaded.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Mouse/Mouse-2_Shaded.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Mouse/Mouse_Standing_-1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Mouse/Mouse_Standing_-2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Mouse/Mouse_Standing_-3.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -21,6 +24,11 @@ animations = [ {
 "loop": true,
 "name": "shaded",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "standing",
+"speed": 3.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=1]
@@ -28,6 +36,7 @@ radius = 48.0
 height = 68.0
 
 [node name="Mouse" type="KinematicBody2D"]
+z_index = 1
 collision_mask = 3
 script = ExtResource( 2 )
 
@@ -36,7 +45,8 @@ position = Vector2( -0.111206, -4.37271 )
 rotation = -0.222316
 scale = Vector2( 0.231937, 0.231937 )
 frames = SubResource( 2 )
-animation = "shaded"
+animation = "standing"
+frame = 1
 playing = true
 offset = Vector2( -168.823, -158.435 )
 

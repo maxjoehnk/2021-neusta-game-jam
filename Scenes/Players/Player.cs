@@ -14,6 +14,7 @@ public abstract class Player : KinematicBody2D
     private Object lastCollision;
     
     private Sprite AngryEyes => GetNode<Sprite>("AngryEyes");
+    private AnimatedSprite Sprite => GetNode<AnimatedSprite>("AnimatedSprite");
 
     public bool IsHunting { get; set; }
     public int Lives { get; private set; }
@@ -49,6 +50,8 @@ public abstract class Player : KinematicBody2D
         {
             this.AngryEyes.Hide();
         }
+
+        this.Sprite.Animation = this.Velocity.Length() < 0.1 ? "standing" : "default";
     }
 
     public override void _PhysicsProcess(float delta)
