@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Game.cs" type="Script" id=1]
-[ext_resource path="res://Scenes/Maps/Map2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Maps/Map4.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/HUD/MainOverlay.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Players/Cat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Players/Mouse.tscn" type="PackedScene" id=5]
@@ -89,5 +89,3 @@ scale = Vector2( 1, -1 )
 [node name="GameFinishedOverlay" parent="Overlays" instance=ExtResource( 8 )]
 position = Vector2( 960, 540 )
 scale = Vector2( 0.42619, 0.42619 )
-
-[connection signal="RestartGame" from="Overlays/GameFinishedOverlay" to="." method="RestartGame"]

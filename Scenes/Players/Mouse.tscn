@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Mouse/Mouse-2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Mouse.cs" type="Script" id=2]
@@ -31,10 +31,6 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=1]
-radius = 48.0
-height = 68.0
-
 [node name="Mouse" type="KinematicBody2D"]
 z_index = 1
 collision_mask = 3
@@ -46,7 +42,6 @@ rotation = -0.222316
 scale = Vector2( 0.231937, 0.231937 )
 frames = SubResource( 2 )
 animation = "standing"
-frame = 1
 playing = true
 offset = Vector2( -168.823, -158.435 )
 
@@ -58,13 +53,12 @@ script = ExtResource( 5 )
 process_mode = 0
 one_shot = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2( 1, 1.03084 )
-shape = SubResource( 1 )
-
 [node name="AngryEyes" type="Sprite" parent="."]
 position = Vector2( -0.111, -4.373 )
 rotation = -0.221657
 scale = Vector2( 0.232, 0.232 )
 texture = ExtResource( 6 )
 offset = Vector2( -168.823, -158.435 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 4, -59, 22, -49, 34, -36, 38, -20, 29, 22, 6, 58, 0, 63, -6, 64, -28, 31, -34, 10, -37, -29, -28, -46, -6, -58 )
