@@ -12,12 +12,12 @@ public class CatSpitOnFloor : Area2D
         this.Sprite.Play("spawn");
         this.Timer.Connect("timeout", this, nameof(this.Destroy));
         this.Connect("body_entered", this, nameof(this.OnCollision));
+        this.AnimationPlayer.Connect("animation_finished", this, nameof(this.Despawn));
     }
     
     public void Destroy()
     {
         this.AnimationPlayer.Play("despawn");
-        this.AnimationPlayer.Connect("animation_finished", this, nameof(this.Despawn));
     }
 
     public void OnCollision(Node body)
@@ -28,7 +28,7 @@ public class CatSpitOnFloor : Area2D
         }
     }
 
-    public void Despawn()
+    public void Despawn(string animationName)
     {
         this.GetParent().RemoveChild(this);
         this.QueueFree();
