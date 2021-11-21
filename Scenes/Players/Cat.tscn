@@ -36,8 +36,8 @@ animations = [ {
 } ]
 
 [sub_resource type="CapsuleShape2D" id=3]
-radius = 101.692
-height = 192.0
+radius = 85.6921
+height = 164.616
 
 [node name="Cat" type="KinematicBody2D"]
 z_index = 1
@@ -66,8 +66,7 @@ process_mode = 0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 2.30791, 3.44745 )
+position = Vector2( 0, 24 )
 shape = SubResource( 3 )
 
 [node name="JumpCooldown" type="Timer" parent="."]

@@ -7,12 +7,12 @@ public class Cat : Player
     private CatSpitter Spitter => GetNode<CatSpitter>("AnimatedSprite/CatSpitter");
     private Timer JumpCoolDown => GetNode<Timer>("JumpCooldown");
     private Timer DashTime => GetNode<Timer>("JumpCooldown/DashTime");
+    
     private bool usedJump = false;
     private float jumpSpeed = 50;
 
-    public Cat() : base(1, 0.99f, 0.5f)
+    public Cat() : base(1, 2048f, 0.99f, 0.5f)
     {
-        this.Speed = new Vector2(2048, 2048);
         this.IsHunting = true;
     }
 
@@ -45,8 +45,6 @@ public class Cat : Player
 
     protected override void PrePhysic()
     {
-
-
         if (!this.usedJump || !DashTime.IsStopped())
         {
             return;

@@ -7,7 +7,7 @@ using JetBrains.Annotations;
 public class Game : Node
 {
     private const float InitialClockRotation = 180;
-    
+
     private Viewport CatViewport => GetNode<Viewport>("Viewports/CatView/Viewport");
     private PlayerCamera CatCamera => GetNode<PlayerCamera>("Viewports/CatView/Viewport/Camera");
     private Viewport MouseViewport => GetNode<Viewport>("Viewports/MouseView/Viewport");
@@ -24,12 +24,12 @@ public class Game : Node
     private GameFinishedOverlay WinnerScreen => GetNode<GameFinishedOverlay>("Overlays/GameFinishedOverlay");
 
     private bool IsNight => this.clockRotation > 180;
-    
+
     private float clockRotation = InitialClockRotation;
 
     private GameState state = GameState.Playing;
     private PlayerRole? winner;
-    
+
     public override void _Ready()
     {
         MouseViewport.World2d = CatViewport.World2d;
@@ -55,13 +55,22 @@ public class Game : Node
     public void RestartGame()
     {
         this.Cat.Reset();
+        this.Cat.Lives = 3;
         this.Mouse.Reset();
+        this.Mouse.Lives = 3;
         this.clockRotation = InitialClockRotation;
         this.state = GameState.Playing;
         this.winner = null;
         this.PlacePlayers();
         this.UpdatePlayers();
         this.ApplyGameState();
+    }
+
+    private void ResetPlayers()
+    {
+        this.Cat.Reset();
+        this.Mouse.Reset();
+        this.PlacePlayers();
     }
 
     private void PlacePlayers()
@@ -74,7 +83,7 @@ public class Game : Node
     {
         Cat.IsHunting = IsNight;
         Mouse.IsHunting = !IsNight;
-        
+
         UpdatePlayerHUD(CatOverlay, Cat);
         UpdatePlayerHUD(MouseOverlay, Mouse);
     }
@@ -123,7 +132,7 @@ public class Game : Node
         {
             return;
         }
-        
+
         GetTree().Paused = true;
         this.CatOverlay.Hide();
         this.MouseOverlay.Hide();
@@ -152,7 +161,8 @@ public class Game : Node
         hud.SetLives(player.Lives);
         hud.SetSpecialCooldown(player.SpecialCooldown);
         hud.SetAttackCooldown(player.AttackCooldown);
-    } 
+        hud.StatusEffects = player.GetStatusEffects();
+    }
 
     private void SetupCameraLimits()
     {
@@ -173,6 +183,6 @@ public class Game : Node
 
     public void OnPlayerGotHit()
     {
-        this.PlacePlayers();
+        this.ResetPlayers();
     }
 }

@@ -1,14 +1,18 @@
-using System;
+using System.Collections.Generic;
+using System.Linq;
 
 using Godot;
+using Godot.Collections;
 
-using Object = Godot.Object;
-
-public abstract class Player : KinematicBody2D
+public abstract class Player : KinematicBody2D, IPlayer
 {
+    private PackedScene statusEffectScene;
+            
     private readonly int playerNumber;
-    
-    protected Vector2 Speed = new Vector2(576, 576);
+    private readonly Godot.Collections.Dictionary<StatusEffect, StatusEffectInstance> statusEffects = new Godot.Collections.Dictionary<StatusEffect, StatusEffectInstance>();
+
+    private readonly float speed;
+    private float currentSpeed;
     protected Vector2 Velocity = Vector2.Zero;
 
     private Object lastCollision;
@@ -17,7 +21,7 @@ public abstract class Player : KinematicBody2D
     private AnimatedSprite Sprite => GetNode<AnimatedSprite>("AnimatedSprite");
 
     public bool IsHunting { get; set; }
-    public int Lives { get; private set; }
+    public int Lives { get; set; }
 
     public float SpecialCooldown => SpecialTimer?.TimeLeft / SpecialTimer?.WaitTime ?? 0;
     public float AttackCooldown => AttackTimer?.TimeLeft / AttackTimer?.WaitTime ?? 0;
@@ -31,15 +35,22 @@ public abstract class Player : KinematicBody2D
     [Signal]
     public delegate void PlayerHit();
     
-    protected Player(int playerNumber, float lowPassVelocity = 0f, float lowPassRotation = 0f)
+    protected Player(int playerNumber, float speed, float lowPassVelocity = 0f, float lowPassRotation = 0f)
     {
         this.playerNumber = playerNumber;
+        this.speed = speed;
+        this.currentSpeed = speed;
         this.IsHunting = false;
         this.Lives = 3;
         this.lowPassVelocity = lowPassVelocity;
         this.lowPassRotation = lowPassRotation;
     }
-    
+
+    public override void _Ready()
+    {
+        this.statusEffectScene = (PackedScene)ResourceLoader.Load("res://Scenes/Players/StatusEffects/StatusEffectInstance.tscn");
+    }
+
     public override void _Process(float delta)
     {
         if (this.IsHunting)
@@ -56,9 +67,10 @@ public abstract class Player : KinematicBody2D
 
     public override void _PhysicsProcess(float delta)
     {
+        ApplyStatusEffects();
         Vector2 direction = GetDirection();
 
-        SetVelocityAndRotation(delta, direction.Angle() - (float)(Math.PI / 2), direction);
+        SetVelocityAndRotation(delta, direction.Angle() - (Mathf.Pi / 2), direction);
         if (Input.IsActionJustPressed($"p{this.playerNumber}_special"))
         {
             SpecialMove();
@@ -70,7 +82,7 @@ public abstract class Player : KinematicBody2D
             this.Velocity = this.Velocity.Bounce(collision.Normal);
 
             float rotation = this.Velocity.Angle();
-            Vector2 directionVector = new Vector2((float)Math.Cos(rotation), (float)Math.Sin(rotation));
+            Vector2 directionVector = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));
             this.Velocity = (this.Velocity.Length() / 4.0f) * directionVector;
             if (this.lastCollision != collision.Collider)
             {
@@ -102,21 +114,48 @@ public abstract class Player : KinematicBody2D
         PrePhysic();
     }
 
+    private void ApplyStatusEffects()
+    {
+        this.currentSpeed = this.speed;
+        foreach (StatusEffect statusEffect in this.statusEffects.Keys)
+        {
+            statusEffect.Apply(this);
+        }
+    }
+
     public void Reset()
     {
-        this.Lives = 3;
-        this.IsHunting = false;
+        this.statusEffects.Clear();
+        this.Velocity = Vector2.Zero;
+        this.ClearCooldowns();
+    }
+
+    public void AttachStatusEffect(StatusEffect effect)
+    {
+        GD.Print($"{this.GetType().Name} got effect: '{effect.Name}'");
+        StatusEffectInstance effectInstance = CreateStatusEffectInstance(effect);
+        this.AddChild(effectInstance);
+        this.statusEffects.Add(effect, effectInstance);
+    }
+
+    private StatusEffectInstance CreateStatusEffectInstance(StatusEffect effect)
+    {
+        StatusEffectInstance effectInstance = (StatusEffectInstance)this.statusEffectScene.Instance();
+        effectInstance.Setup(effect);
+        effectInstance.Connect(nameof(StatusEffectInstance.OnTimeout), this, nameof(this.OnStatusEffectTimeout), new Array(effectInstance, effect));
+
+        return effectInstance;
     }
 
     private void SetVelocityAndRotation(float delta, float currentRotation, Vector2 direction)
     {
-        this.Velocity = this.Velocity * this.lowPassVelocity + (1.0f - this.lowPassVelocity) * direction * this.Speed * delta;
+        this.Velocity = this.Velocity * this.lowPassVelocity + (1.0f - this.lowPassVelocity) * direction * this.currentSpeed * delta;
 
         if (direction.Length() > 0)
         {
-            if ((this.Rotation - currentRotation) > Math.PI)
+            if ((this.Rotation - currentRotation) > Mathf.Pi)
             {
-                this.Rotation -= (float)Math.PI * 2;
+                this.Rotation -= Mathf.Pi * 2;
             }
             this.Rotation = this.Rotation * this.lowPassRotation + currentRotation * (1.0f - this.lowPassRotation);
         }
@@ -127,6 +166,12 @@ public abstract class Player : KinematicBody2D
     protected abstract void SpecialMove();
     protected abstract void PrePhysic();
 
+    private void ClearCooldowns()
+    {
+        AttackTimer?.Stop();
+        SpecialTimer?.Stop();
+    }
+
     private Vector2 GetDirection()
     {
         float x = Input.GetActionStrength($"p{this.playerNumber}_right") -
@@ -135,5 +180,29 @@ public abstract class Player : KinematicBody2D
                   Input.GetActionStrength($"p{this.playerNumber}_up");
 
         return new Vector2(x, y);
+    }
+
+    public float Speed
+    {
+        get => this.currentSpeed;
+        set => this.currentSpeed = value;
+    }
+
+    public void OnStatusEffectTimeout(StatusEffectInstance effectInstance, StatusEffect effect)
+    {
+        GD.Print($"{this.GetType().Name} lost effect: '{effect.Name}'");
+        this.statusEffects.Remove(effect);
+        this.RemoveChild(effectInstance);
+    }
+
+    public List<StatusEffectStatus> GetStatusEffects()
+    {
+        return this.statusEffects
+            .Select(e => new StatusEffectStatus
+            {
+                Name = e.Key.Name,
+                Duration = e.Value.Duration.TimeLeft / e.Value.Duration.WaitTime
+            })
+            .ToList();
     }
 }

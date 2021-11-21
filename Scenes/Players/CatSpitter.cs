@@ -2,7 +2,7 @@ using Godot;
 
 public class CatSpitter : Position2D
 {
-    private const float Velocity = 2500.0f;
+    private const float Velocity = 1000.0f;
     
     private PackedScene Spit;
     
@@ -21,7 +21,7 @@ public class CatSpitter : Position2D
             return;
         }
 
-        RigidBody2D spit = (RigidBody2D)this.Spit.Instance();
+        CatSpit spit = (CatSpit)this.Spit.Instance();
         spit.GlobalPosition = GlobalPosition;
         spit.LinearVelocity = new Vector2(direction.x * Velocity, direction.y * Velocity);
         spit.SetAsToplevel(true);
