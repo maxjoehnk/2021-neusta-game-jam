@@ -54,6 +54,7 @@ public class Game : Node
     [UsedImplicitly]
     public void RestartGame()
     {
+        this.RemoveProjectiles();
         this.Cat.Reset();
         this.Cat.Lives = 3;
         this.Mouse.Reset();
@@ -64,6 +65,11 @@ public class Game : Node
         this.PlacePlayers();
         this.UpdatePlayers();
         this.ApplyGameState();
+    }
+
+    private void RemoveProjectiles()
+    {
+        this.GetTree().CallGroup("projectiles", "queue_free");
     }
 
     private void ResetPlayers()
