@@ -35,6 +35,8 @@ public class Game : Node
         MouseViewport.World2d = CatViewport.World2d;
         CatCamera.Target = Cat;
         MouseCamera.Target = Mouse;
+        Mouse.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
+        Cat.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
         SetupCameraLimits();
         // HACK[max]: we run into hit detection once at the start of the game. This should be replaced by PlacePlayers
         RestartGame();
@@ -167,5 +169,10 @@ public class Game : Node
         camera.LimitRight = (int)Math.Floor(limits.End.x * cellSize.x);
         camera.LimitTop = (int)Math.Floor(limits.Position.y * cellSize.y);
         camera.LimitBottom = (int)Math.Floor(limits.End.y * cellSize.y);
+    }
+
+    public void OnPlayerGotHit()
+    {
+        this.PlacePlayers();
     }
 }

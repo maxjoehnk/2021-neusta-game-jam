@@ -27,6 +27,9 @@ public abstract class Player : KinematicBody2D
     private readonly float lowPassVelocity;
     private readonly float lowPassRotation;
 
+    [Signal]
+    public delegate void PlayerHit();
+    
     protected Player(int playerNumber, float lowPassVelocity = 0f, float lowPassRotation = 0f)
     {
         this.playerNumber = playerNumber;
@@ -74,6 +77,11 @@ public abstract class Player : KinematicBody2D
                     {
                         this.Lives -= 1;
                     }
+                    else
+                    {
+                        ((Player)collision.Collider).Lives -= 1;
+                    }
+                    EmitSignal(nameof(PlayerHit));
                 }
             }
 
