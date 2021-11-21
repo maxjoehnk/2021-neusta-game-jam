@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Assets/Cat/Cat-2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Cat.cs" type="Script" id=2]
@@ -6,14 +6,23 @@
 [ext_resource path="res://Assets/Cat/Cat-angry-eyes.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Cat/Cat-1.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Cat/Cat-4.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Cat/Cat-2_Shaded.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sounds/CatSpit.wav" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/Players/CatSpitter.cs" type="Script" id=9]
+[ext_resource path="res://Assets/Cat/Cat-4_Shaded.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Cat/Cat-3_Shaded.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Cat/Cat-1_Shaded.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 7 ), ExtResource( 11 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "shaded",
 "speed": 5.0
 } ]
 
@@ -30,7 +39,8 @@ position = Vector2( 3.27971, -19.129 )
 rotation = 1.5763
 scale = Vector2( 0.250094, 0.250094 )
 frames = SubResource( 2 )
-frame = 2
+animation = "shaded"
+frame = 3
 playing = true
 offset = Vector2( -228.701, -58.4757 )
 
@@ -46,6 +56,7 @@ process_mode = 0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 2.30791, 3.44745 )
 shape = SubResource( 3 )
 
