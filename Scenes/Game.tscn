@@ -75,7 +75,8 @@ render_target_update_mode = 3
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
 [node name="ClockOverlay" parent="." instance=ExtResource( 3 )]
-position = Vector2( 960, 136 )
+position = Vector2( 960, 179 )
+scale = Vector2( 1.61951, 1.61951 )
 
 [node name="Overlays" type="CanvasLayer" parent="."]
 
