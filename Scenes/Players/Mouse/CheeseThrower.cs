@@ -10,7 +10,7 @@ public class CheeseThrower : Position2D
 
     public override void _Ready()
     {
-        this.Cheese = (PackedScene)ResourceLoader.Load("res://Scenes/Players/Cheese.tscn");
+        this.Cheese = (PackedScene)ResourceLoader.Load("res://Scenes/Players/Mouse/Cheese.tscn");
     }
 
     public void Throw(Vector2 direction)

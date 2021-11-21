@@ -11,7 +11,7 @@ public class CatSpitter : Position2D
 
     public override void _Ready()
     {
-        this.Spit = (PackedScene)ResourceLoader.Load("res://Scenes/Players/CatSpit.tscn");
+        this.Spit = (PackedScene)ResourceLoader.Load("res://Scenes/Players/Cat/CatSpit.tscn");
     }
 
     public void Shoot(Vector2 direction)

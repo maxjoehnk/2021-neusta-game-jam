@@ -10,7 +10,7 @@ public class CatSpit : RigidBody2D
     
     public override void _Ready()
     {
-        this.spitOnFloor = (PackedScene)ResourceLoader.Load("res://Scenes/Players/CatSpitOnFloor.tscn");
+        this.spitOnFloor = (PackedScene)ResourceLoader.Load("res://Scenes/Players/Cat/CatSpitOnFloor.tscn");
     }
 
     public override void _PhysicsProcess(float delta)

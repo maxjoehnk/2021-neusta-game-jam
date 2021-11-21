@@ -6,7 +6,7 @@ public class GameFinishedOverlay : Node2D
     private Node2D MouseWin => GetNode<Node2D>("MouseWin");
 
     [Signal]
-    delegate void RestartGame();
+    public delegate void RestartGame();
     
     public void SetWinner(PlayerRole winner)
     {

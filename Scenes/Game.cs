@@ -32,11 +32,12 @@ public class Game : Node
 
     public override void _Ready()
     {
-        MouseViewport.World2d = CatViewport.World2d;
-        CatCamera.Target = Cat;
-        MouseCamera.Target = Mouse;
-        Mouse.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
-        Cat.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
+        this.MouseViewport.World2d = this.CatViewport.World2d;
+        this.CatCamera.Target = this.Cat;
+        this.MouseCamera.Target = this.Mouse;
+        this.Mouse.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
+        this.Cat.Connect(nameof(Player.PlayerHit), this, nameof(this.OnPlayerGotHit));
+        this.WinnerScreen.Connect(nameof(GameFinishedOverlay.RestartGame), this, nameof(this.RestartGame));
         SetupCameraLimits();
         // HACK[max]: we run into hit detection once at the start of the game. This should be replaced by PlacePlayers
         RestartGame();

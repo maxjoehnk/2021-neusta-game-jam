@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/Mouse/Mouse-2.png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Players/Mouse.cs" type="Script" id=2]
+[ext_resource path="res://Scenes/Players/Mouse/Mouse.cs" type="Script" id=2]
 [ext_resource path="res://Assets/Mouse/Mouse-3.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Mouse/Mouse-1.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Players/CheeseThrower.cs" type="Script" id=5]
+[ext_resource path="res://Scenes/Players/Mouse/CheeseThrower.cs" type="Script" id=5]
 [ext_resource path="res://Assets/Mouse/Mouse_angry_eyes.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Mouse/Mouse-1_Shaded.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Mouse/Mouse-3_Shaded.png" type="Texture" id=8]
