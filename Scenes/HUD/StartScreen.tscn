@@ -43,6 +43,7 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 5 )
+texture_focused = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
