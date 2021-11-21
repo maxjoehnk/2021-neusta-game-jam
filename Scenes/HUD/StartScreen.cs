@@ -1,14 +1,19 @@
 using Godot;
-using System;
+
+using JetBrains.Annotations;
 
 public class StartScreen : Node2D
 {
+    private TextureButton StartButton => GetNode<TextureButton>("TextureButton");
 
+    public override void _Ready()
+    {
+        this.StartButton.GrabFocus();
+    }
 
-
-private void _on_TextureButton_pressed()
-{
-	GetTree().ChangeScene("res://Scenes/Game.tscn");
-}
-
+    [UsedImplicitly]
+    private void _on_TextureButton_pressed()
+    {
+        GetTree().ChangeScene("res://Scenes/Game.tscn");
+    }
 }
