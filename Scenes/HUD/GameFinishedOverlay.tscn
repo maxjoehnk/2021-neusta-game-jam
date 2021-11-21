@@ -102,7 +102,6 @@ scale = Vector2( 5.16202, 5.16202 )
 texture = ExtResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
 one_shot = true
 
 [node name="ContinueText" type="Label" parent="."]
