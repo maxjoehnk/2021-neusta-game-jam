@@ -1,0 +1,85 @@
+[gd_resource type="VisualShader" load_steps=12 format=2]
+
+[ext_resource path="res://Assets/HUD/StartButton.png" type="Texture" id=1]
+
+[sub_resource type="VisualShaderNodeInput" id=11]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeFresnel" id=1]
+default_input_values = [ 2, false, 3, 5.0 ]
+
+[sub_resource type="OpenSimplexNoise" id=2]
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[sub_resource type="VisualShaderNodeTexture" id=4]
+texture = SubResource( 3 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=6]
+constant = Color( 0.836563, 0.180645, 0.180645, 1 )
+
+[sub_resource type="VisualShaderNodeColorOp" id=7]
+
+[sub_resource type="VisualShaderNodeColorOp" id=8]
+operator = 2
+
+[sub_resource type="VisualShaderNodeTexture" id=10]
+texture = ExtResource( 1 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=9]
+
+[resource]
+code = "shader_type canvas_item;
+
+
+
+void vertex() {
+// Color:2
+	vec3 n_out2p0 = vec3(1.000000, 1.000000, 1.000000);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	VERTEX = n_out2p0.xy;
+
+}
+
+void fragment() {
+// Color:5
+	vec3 n_out5p0 = vec3(0.836563, 0.180645, 0.180645);
+	float n_out5p1 = 1.000000;
+
+// Output:0
+	COLOR.rgb = n_out5p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -445.265, -7.97217 )
+mode = 1
+flags/light_only = false
+nodes/vertex/0/position = Vector2( 400, 160 )
+nodes/vertex/2/node = SubResource( 9 )
+nodes/vertex/2/position = Vector2( 35.6188, 105 )
+nodes/vertex/connections = PoolIntArray( 2, 0, 0, 0 )
+nodes/fragment/0/position = Vector2( 380, 240 )
+nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/position = Vector2( -440, 80 )
+nodes/fragment/3/node = SubResource( 4 )
+nodes/fragment/3/position = Vector2( 60, 440 )
+nodes/fragment/5/node = SubResource( 6 )
+nodes/fragment/5/position = Vector2( 160, 240 )
+nodes/fragment/7/node = SubResource( 7 )
+nodes/fragment/7/position = Vector2( 200, 0 )
+nodes/fragment/8/node = SubResource( 8 )
+nodes/fragment/8/position = Vector2( -20, 100 )
+nodes/fragment/9/node = SubResource( 10 )
+nodes/fragment/9/position = Vector2( -360, 280 )
+nodes/fragment/10/node = SubResource( 11 )
+nodes/fragment/10/position = Vector2( -640, 400 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 8, 0, 9, 0, 8, 1, 5, 0, 0, 0 )
