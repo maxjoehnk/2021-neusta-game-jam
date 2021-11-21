@@ -30,7 +30,6 @@ Created as part of the [team neusta Game Jam 2021](https://team-neusta-gamejam.d
 | Up     | NumPad 8 | Left Stick Up    |
 | Down   | NumPad 5 | Left Stick Down  |
 | Attack | NumPad 7 | Left Trigger     |
-| Jump   | E        | Right Trigger    |
 
 ## Screenshots
 
