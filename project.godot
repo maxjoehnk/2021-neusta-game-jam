@@ -10,9 +10,14 @@ config_version=4
 
 [application]
 
-config/name="2021 Neusta Gamejam"
+config/name="Basement Battles"
+config/description="A 2 player catch game with shifting roles based on the day/night cycle."
 run/main_scene="res://Scenes/Game.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://Logo.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://Logo.png"
 
 [input]
 

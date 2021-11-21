@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2021 Neusta Gamejam", "2021 Neusta Gamejam.csproj", "{35DFC8B3-5E4A-4CF9-BD7C-3F807F918451}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basement Batltes", "Basement Battles.csproj", "{35DFC8B3-5E4A-4CF9-BD7C-3F807F918451}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
