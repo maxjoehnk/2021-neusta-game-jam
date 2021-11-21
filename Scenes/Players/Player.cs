@@ -53,15 +53,7 @@ public abstract class Player : KinematicBody2D, IPlayer
 
     public override void _Process(float delta)
     {
-        if (this.IsHunting)
-        {
-            this.AngryEyes.Show();
-        }
-        else
-        {
-            this.AngryEyes.Hide();
-        }
-
+        this.AngryEyes.Visible = this.IsHunting;
         this.Sprite.Animation = this.Velocity.Length() < 0.1 ? "standing" : "default";
     }
 
