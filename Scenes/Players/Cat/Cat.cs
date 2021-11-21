@@ -41,6 +41,7 @@ public class Cat : Player
         JumpCoolDown.Start();
         DashTime.Start();
         usedJump = true;
+        this.PlaySpecialAnimation();
     }
 
     protected override void PrePhysic()

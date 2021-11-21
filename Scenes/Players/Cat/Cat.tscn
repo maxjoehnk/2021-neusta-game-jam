@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/Cat/Cat-2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Players/Cat/Cat.cs" type="Script" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Cat/Cat_Standing-1.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Cat/Cat_Standing-4.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Cat/Cat_Standing-2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Cat/Cat_Jumping_-2.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -33,6 +34,11 @@ animations = [ {
 "loop": true,
 "name": "standing",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": false,
+"name": "special",
+"speed": 5.0
 } ]
 
 [node name="Cat" type="KinematicBody2D"]
@@ -45,8 +51,7 @@ position = Vector2( 3.27971, -19.129 )
 rotation = 1.5763
 scale = Vector2( 0.250094, 0.250094 )
 frames = SubResource( 2 )
-animation = "standing"
-frame = 3
+animation = "special"
 playing = true
 offset = Vector2( -228.701, -58.4757 )
 
@@ -78,4 +83,5 @@ texture = ExtResource( 4 )
 offset = Vector2( -228.701, -58.476 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( 40, -116, 60, -89, 77, -58, 82, -24, 73, 16, 67, 72, 72, 95, 42, 168, 25, 182, 15, 184, -9, 173, -51, 107, -69, 72, -69, 17, -84, -29, -71, -74, -19, -134, -2, -143, 30, -133 )

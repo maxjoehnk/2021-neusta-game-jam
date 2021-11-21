@@ -18,7 +18,7 @@ public abstract class Player : KinematicBody2D, IPlayer
     private Object lastCollision;
     
     private Sprite AngryEyes => GetNode<Sprite>("AngryEyes");
-    private AnimatedSprite Sprite => GetNode<AnimatedSprite>("AnimatedSprite");
+    protected AnimatedSprite Sprite => GetNode<AnimatedSprite>("AnimatedSprite");
 
     public bool IsHunting { get; set; }
     public int Lives { get; set; }
@@ -31,6 +31,7 @@ public abstract class Player : KinematicBody2D, IPlayer
 
     private readonly float lowPassVelocity;
     private readonly float lowPassRotation;
+    private bool specialAnimationRunning;
 
     [Signal]
     public delegate void PlayerHit();
@@ -54,7 +55,10 @@ public abstract class Player : KinematicBody2D, IPlayer
     public override void _Process(float delta)
     {
         this.AngryEyes.Visible = this.IsHunting;
-        this.Sprite.Animation = this.Velocity.Length() < 0.1 ? "standing" : "default";
+        if (!this.specialAnimationRunning)
+        {
+            this.Sprite.Animation = this.Velocity.Length() < 0.1 ? "standing" : "default";
+        }
     }
 
     public override void _PhysicsProcess(float delta)
@@ -196,5 +200,19 @@ public abstract class Player : KinematicBody2D, IPlayer
                 Duration = e.Value.Duration.TimeLeft / e.Value.Duration.WaitTime
             })
             .ToList();
+    }
+
+    // TODO[max]: this is not how inheritance should be used.
+    protected void PlaySpecialAnimation()
+    {
+        this.specialAnimationRunning = true;
+        Sprite.Animation = "special";
+        Sprite.Connect("animation_finished", this, nameof(this.OnSpecialAnimationDone));
+    }
+
+    public void OnSpecialAnimationDone()
+    {
+        this.Sprite.Disconnect("animation_finished", this, nameof(this.OnSpecialAnimationDone));
+        this.specialAnimationRunning = false;
     }
 }
