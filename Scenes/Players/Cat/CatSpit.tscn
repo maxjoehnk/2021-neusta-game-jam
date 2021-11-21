@@ -62,6 +62,8 @@ collision_layer = 4
 collision_mask = 3
 mass = 0.01
 physics_material_override = SubResource( 2 )
+contacts_reported = 5
+contact_monitor = true
 linear_damp = 1.0
 angular_damp = 1.0
 script = ExtResource( 2 )
@@ -69,7 +71,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.116018, 0.116018 )
 frames = SubResource( 3 )
-frame = 26
+frame = 12
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

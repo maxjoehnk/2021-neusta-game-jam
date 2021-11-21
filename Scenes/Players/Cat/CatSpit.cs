@@ -20,6 +20,14 @@ public class CatSpit : RigidBody2D
         if (this.LinearVelocity.Length() < 10)
         {
             this.SpawnOnFloor();
+            return;
+        }
+        foreach (object collidingBody in this.GetCollidingBodies())
+        {
+            if (!(collidingBody is Cat))
+            {
+                this.SpawnOnFloor();
+            }
         }
     }
 
