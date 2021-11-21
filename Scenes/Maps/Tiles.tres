@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=59 format=2]
+[gd_resource type="TileSet" load_steps=65 format=2]
 
 [ext_resource path="res://Assets/Map/CobblestoneWall_MiddleV_Tile_Small.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Planks_Tile_Small.png" type="Texture" id=2]
@@ -29,6 +29,9 @@
 [ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_O_Tile_Small.png" type="Texture" id=27]
 [ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_L_Tile_Small.png" type="Texture" id=28]
 [ext_resource path="res://Assets/Map/CobblestoneWall_Outside_TPiece_R_Tile_Small.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Map/CobblestoneWall_Endcap_C_Tile_Small.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Map/CobblestoneWall_OutsideFill_Corner_OR_Tile_Small.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Map/CobblestoneWall_OutsideFill_Corner_UR_Tile_Small.png" type="Texture" id=32]
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 0.416656, 60.5833, 8.05557, 59.1944, 28.1945, 83.5, 73.3333, 57.8056, 75.4167, 48.0833, 78.1945, 44.6111, 78.8889, 10.1389, 57.3611, 0, 177.5, 0.416656, 172.639, 19.8611, 178.889, 38.6111, 174.722, 60.8333, 169.167, 72.6389, 178.194, 99.7222, 176.806, 107.361, 170.556, 115.694, 174.722, 123.333, 155.972, 167.083, 160.139, 184.444, 154.583, 191.139, 160.833, 223.083, 174.028, 232.806, 178.481, 256, 58.3192, 256, 51.1111, 251.556, 50.4167, 236.972, 68.4722, 219.611, 67.0833, 176.556, 25.4167, 201.556, 7.36111, 199.472, 0, 191.833 )
@@ -101,6 +104,15 @@ points = PoolVector2Array( 0, 0, 256, 0, 256, 194.861, 217.778, 201.806, 184.444
 
 [sub_resource type="ConvexPolygonShape2D" id=32]
 points = PoolVector2Array( 0, 0, 177.5, 0, 175.417, 20.5556, 179.583, 42.0833, 172.639, 69.1667, 192.778, 67.7778, 203.889, 73.3333, 229.583, 58.0556, 256, 62.2222, 256, 196.944, 217.778, 203.889, 183.056, 199.028, 181.667, 192.778, 162.222, 185.833, 159.444, 191.389, 162.917, 225.417, 171.25, 230.278, 181.667, 256, 0, 256 )
+
+[sub_resource type="ConvexPolygonShape2D" id=33]
+points = PoolVector2Array( 72.6389, 88.6111, 127.5, 74.7222, 136.528, 77.5, 160.833, 65, 180.278, 101.111, 171.944, 115, 173.333, 124.028, 157.361, 169.167, 136.528, 176.806, 129.583, 173.333, 124.722, 180.278, 112.917, 183.75, 74.7222, 175.417, 66.3889, 141.389, 74.0278, 124.722 )
+
+[sub_resource type="ConvexPolygonShape2D" id=34]
+points = PoolVector2Array( 256, 0, 256, 194.333, 217.5, 204.333, 181.667, 194.333, 137.5, 183.5, 132.5, 173.5, 127.5, 171.833, 123.333, 179.333, 114.167, 181.833, 65.8333, 174.333, 70, 156, 70, 111, 73.3333, 81.8333, 81.6667, 80.1666, 72.5, 57.6666, 78.3333, 46.8333, 77.5, 10.1666, 60, 1 )
+
+[sub_resource type="ConvexPolygonShape2D" id=35]
+points = PoolVector2Array( 50.8333, 256, 50.8333, 237.5, 66.6667, 222.5, 65.8333, 172.5, 71.6667, 158.333, 65, 137.5, 70.8333, 125.833, 69.1667, 96.6666, 86.6667, 80.8333, 127.5, 71.6666, 133.333, 77.5, 160.833, 64.1666, 165, 70.8333, 194.167, 68.3333, 203.333, 71.6666, 232.5, 56.6666, 256, 60, 256, 256 )
 
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -721,3 +733,66 @@ points = PoolVector2Array( 178.194, 0, 176.806, 18.7431, 178.889, 52.8577, 170.5
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 33/z_index = 0
+34/name = "CobblestoneWall_Endcap_C_Tile_Small.png 34"
+34/texture = ExtResource( 30 )
+34/tex_offset = Vector2( 0, 0 )
+34/modulate = Color( 1, 1, 1, 1 )
+34/region = Rect2( 0, 0, 256, 256 )
+34/tile_mode = 0
+34/occluder_offset = Vector2( 0, 0 )
+34/navigation_offset = Vector2( 0, 0 )
+34/shape_offset = Vector2( 0, 0 )
+34/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+34/shape = SubResource( 33 )
+34/shape_one_way = false
+34/shape_one_way_margin = 1.0
+34/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 33 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+34/z_index = 0
+35/name = "CobblestoneWall_OutsideFill_Corner_OR_Tile_Small.png 35"
+35/texture = ExtResource( 31 )
+35/tex_offset = Vector2( 0, 0 )
+35/modulate = Color( 1, 1, 1, 1 )
+35/region = Rect2( 0, 0, 256, 256 )
+35/tile_mode = 0
+35/occluder_offset = Vector2( 0, 0 )
+35/navigation_offset = Vector2( 0, 0 )
+35/shape_offset = Vector2( 0, 0 )
+35/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+35/shape = SubResource( 34 )
+35/shape_one_way = false
+35/shape_one_way_margin = 1.0
+35/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 34 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+35/z_index = 0
+36/name = "CobblestoneWall_OutsideFill_Corner_UR_Tile_Small.png 36"
+36/texture = ExtResource( 32 )
+36/tex_offset = Vector2( 0, 0 )
+36/modulate = Color( 1, 1, 1, 1 )
+36/region = Rect2( 0, 0, 256, 256 )
+36/tile_mode = 0
+36/occluder_offset = Vector2( 0, 0 )
+36/navigation_offset = Vector2( 0, 0 )
+36/shape_offset = Vector2( 0, 0 )
+36/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+36/shape = SubResource( 35 )
+36/shape_one_way = false
+36/shape_one_way_margin = 1.0
+36/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 35 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+36/z_index = 0
