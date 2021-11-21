@@ -41,6 +41,10 @@ Created as part of the [team neusta Game Jam 2021](https://team-neusta-gamejam.d
 
 ![Screenshot4](Docs/Screenshot4.png)
 
+![Start Screen](Docs/ScreenshotStart.png)
+
+![Pause Screen](Docs/ScreenshotPause.png)
+
 ## Credits
 
 * Alena
