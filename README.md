@@ -1,6 +1,6 @@
 # Basement Battles
 
-<img src="/home/max/Code/1_gaming/2021_neusta_gamejam/Logo.png" alt="Logo" style="zoom: 50%;" />
+![Logo](Logo.png)
 
 A 2 player catch game with shifting roles based on the day/night cycle.
 
