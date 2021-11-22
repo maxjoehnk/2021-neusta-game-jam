@@ -41,6 +41,8 @@ public class Game : Node
         this.WinnerScreen.Connect(nameof(GameFinishedOverlay.RestartGame), this, nameof(this.RestartGame));
         this.PauseMenu.Connect(nameof(PauseMenu.RestartGame), this, nameof(this.RestartGame));
         this.PauseMenu.Connect(nameof(PauseMenu.ResumeGame), this, nameof(this.ResumeGame));
+        this.CatOverlay.Side = SplitscreenSide.Start;
+        this.MouseOverlay.Side = SplitscreenSide.End;
         SetupCameraLimits();
         // HACK[max]: we run into hit detection once at the start of the game. This should be replaced by PlacePlayers
         RestartGame();

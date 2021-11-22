@@ -85,9 +85,6 @@ scale = Vector2( 1.61951, 1.61951 )
 [node name="CatOverlay" parent="Overlays" instance=ExtResource( 13 )]
 
 [node name="MouseOverlay" parent="Overlays" instance=ExtResource( 13 )]
-position = Vector2( 1920, 0 )
-rotation = -3.14159
-scale = Vector2( 1, -1 )
 
 [node name="GameFinishedOverlay" parent="Overlays" instance=ExtResource( 8 )]
 position = Vector2( 960, 540 )

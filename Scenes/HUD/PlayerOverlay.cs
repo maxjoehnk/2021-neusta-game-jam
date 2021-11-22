@@ -2,65 +2,77 @@ using System.Collections.Generic;
 
 using Godot;
 
-public class PlayerOverlay : Node2D
+public class PlayerOverlay : Container
 {
-    private PackedScene effectIndicator;
-    
-    private AnimatedSprite Heart1 => GetNode<AnimatedSprite>("Heart1");
-    private AnimatedSprite Heart2 => GetNode<AnimatedSprite>("Heart2");
-    private AnimatedSprite Heart3 => GetNode<AnimatedSprite>("Heart3");
+    private SplitscreenSide splitscreenSide;
 
-    private AnimatedSprite[] Hearts => new[] { Heart1, Heart2, Heart3 };
-    private AnimatedSprite AngryFace => GetNode<AnimatedSprite>("AngryFace");
+    public SplitscreenSide Side
+    {
+        get => this.splitscreenSide;
+        set
+        {
+            this.splitscreenSide = value;
+            if (value == SplitscreenSide.Start)
+            {
+                this.LeftSide.Show();
+                this.RightSide.Hide();
+            }
+            else
+            {
+                this.RightSide.Show();
+                this.LeftSide.Hide();
+            }
+        }
+    }
 
-    private TextureProgress AttackCooldown => GetNode<TextureProgress>("AttackCooldown");
-    private TextureProgress SpecialCooldown => GetNode<TextureProgress>("SpecialCooldown");
+    private PlayerOverlayInstance LeftSide => GetNode<PlayerOverlayInstance>("LeftAligned");
+    private PlayerOverlayInstance RightSide => GetNode<PlayerOverlayInstance>("RightAligned");
 
-    private VBoxContainer StatusEffectList => GetNode<VBoxContainer>("StatusEffects");
-
-    public List<StatusEffectStatus> StatusEffects = new List<StatusEffectStatus>();
+    public List<StatusEffectStatus> StatusEffects
+    {
+        get => this.splitscreenSide == SplitscreenSide.Start
+            ? this.LeftSide.StatusEffects
+            : this.RightSide.StatusEffects;
+        set
+        {
+            if (this.splitscreenSide == SplitscreenSide.Start)
+            {
+                this.LeftSide.StatusEffects = value;
+            }
+            else
+            {
+                this.RightSide.StatusEffects = value;
+            }
+        }
+    }
 
     public override void _Ready()
     {
-        this.effectIndicator = (PackedScene)ResourceLoader.Load("res://Scenes/HUD/StatusEffectIndicator.tscn");
-    }
-
-    public override void _Process(float delta)
-    {
-        foreach (Node child in StatusEffectList.GetChildren())
-        {
-            StatusEffectList.RemoveChild(child);
-        }
-
-        foreach (StatusEffectStatus effectStatus in this.StatusEffects)
-        {
-            StatusEffectIndicator indicator = this.effectIndicator.Instance<StatusEffectIndicator>();
-            StatusEffectList.AddChild(indicator);
-            indicator.Progress = effectStatus.Duration;
-            indicator.Text = effectStatus.Name;
-        }
+        this.LeftSide.Side = SplitscreenSide.Start;
+        this.RightSide.Side = SplitscreenSide.End;
     }
 
     public void SetHunting(bool hunting)
     {
-        this.AngryFace.Visible = hunting;
+        this.LeftSide.SetHunting(hunting);
+        this.RightSide.SetHunting(hunting);
     }
 
     public void SetLives(int lives)
     {
-        for (int i = 0; i < this.Hearts.Length; i++)
-        {
-            this.Hearts[i].Animation = lives > i ? "alive" : "dead";
-        }
+        this.LeftSide.SetLives(lives);
+        this.RightSide.SetLives(lives);
     }
 
     public void SetSpecialCooldown(float cooldown)
     {
-        SpecialCooldown.Value = cooldown;
+        this.LeftSide.SetSpecialCooldown(cooldown);
+        this.RightSide.SetSpecialCooldown(cooldown);
     }
 
     public void SetAttackCooldown(float cooldown)
     {
-        AttackCooldown.Value = cooldown;
+        this.LeftSide.SetAttackCooldown(cooldown);
+        this.RightSide.SetAttackCooldown(cooldown);
     }
 }
