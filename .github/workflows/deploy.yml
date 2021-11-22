@@ -1,0 +1,40 @@
+name: 'Publish to GitHub Pages'
+
+env:
+  GODOT_VERSION: 3.4
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    container:
+      image: barichello/godot-ci:mono-${GODOT_VERSION}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Move HTML5 templates into position
+        run: |
+          mkdir -v -p ~/.local/share/godot/templates
+          mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable.mono ~/.local/share/godot/templates/${GODOT_VERSION}.stable.mono
+
+      - name: Create build directory
+        run: mkdir -v -p Builds/Web
+
+      - name: Build
+        run: godot -v --export "HTML5" Builds/Web/index.html
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Builds/Web
+          user_name: 'github-ci[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
